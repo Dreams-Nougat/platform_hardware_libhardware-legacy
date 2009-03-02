@@ -1,0 +1,11 @@
+Revision: 988fd8407c3a56d819ffbe5a3fe8a3abde38e8a8
+Patch-set: 1
+File: power/power.c
+
+203
+Mon Mar 02 18:22:46 2009 +0000
+Author: Joe Onorato <1000701@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: AAAAIn////g=
+Bytes: 107
+Before you resubmit this, can you update this to expand the tabs.  Each level of indent should be 4 spaces.
+
