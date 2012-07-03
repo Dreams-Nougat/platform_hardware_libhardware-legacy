@@ -1,0 +1,11 @@
+Revision: 6213ec150822a290df3410defd253f7013e3b328
+Patch-set: 1
+File: wifi/wifi.c
+
+224
+Tue Jul 03 19:05:54 2012 +0000
+Author: Irfan Sheriff <1003344@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: AAAHIX///6E=
+Bytes: 62
+This should instead be waiting for wifi.interface if it is set
+
