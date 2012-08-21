@@ -9,3 +9,11 @@ UUID: AAAIw3///2s=
 Bytes: 164
 There's probably a way to make this conditional more readable. Certainly the indentation should be 8 spaces, but there's probably room for improvement beyond that..
 
+2634
+Tue Aug 21 17:38:57 2012 +0000
+Author: Eric Laurent <1015319@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: AAAIxn///wE=
+Bytes: 220
+there are regulatory requirements that mandate that the shutter sound is not attenuated in some countries. This must be taken into account here.
+also please use new audio device defines AUDIO_DEVICE_OUT_WIRED_HEADSET ...
+
