@@ -1,0 +1,11 @@
+Revision: 27469d653b4739814bf00f0532693ab2553e4a54
+Patch-set: 1
+File: audio/AudioPolicyManagerBase.cpp
+
+2630
+Tue Aug 21 17:23:42 2012 +0000
+Author: Jean-Baptiste Queru <1000660@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: AAAIw3///2s=
+Bytes: 164
+There's probably a way to make this conditional more readable. Certainly the indentation should be 8 spaces, but there's probably room for improvement beyond that..
+
