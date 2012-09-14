@@ -9,3 +9,11 @@ UUID: AAAJFn///l8=
 Bytes: 66
 Isn't it a mutual-exclusive check? Maybe you want || instead of &&
 
+382
+Fri Sep 14 20:24:44 2012 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: AAAJFn///l8=
+UUID: AAAJFn///lQ=
+Bytes: 55
+Sorry, I overlooked that this is strstr and not strcmp.
+
