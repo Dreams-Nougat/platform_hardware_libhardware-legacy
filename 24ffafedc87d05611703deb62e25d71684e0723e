@@ -1,0 +1,11 @@
+Revision: 24ffafedc87d05611703deb62e25d71684e0723e
+Patch-set: 1
+File: wifi/wifi.c
+
+382
+Fri Sep 14 20:17:30 2012 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: AAAJFn///l8=
+Bytes: 66
+Isn't it a mutual-exclusive check? Maybe you want || instead of &&
+
