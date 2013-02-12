@@ -11,6 +11,13 @@ Please accept a parameter for p2p_disable status and update this.
 
 We should not be looking at SUPP_CONFIG_FILE inside this function
 
+458
+Tue Feb 12 20:20:46 2013 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: Py5HkLDQ
+Bytes: 101
+This is a "wrong" place to add this line to config file - it will be done only if file doesn't exist.
+
 459
 Tue Feb 12 17:24:57 2013 +0000
 Author: Irfan Sheriff <1003344@85c56323-6fa9-3386-8a01-6480fb634889>
