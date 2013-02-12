@@ -1,0 +1,20 @@
+Revision: 5cc42eebeb0cc20cfb91c3d9d920347fbbeda09b
+Patch-set: 1
+File: wifi/wifi.c
+
+458
+Tue Feb 12 17:24:57 2013 +0000
+Author: Irfan Sheriff <1003344@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: Pyqfq1AE
+Bytes: 132
+Please accept a parameter for p2p_disable status and update this.
+
+We should not be looking at SUPP_CONFIG_FILE inside this function
+
+459
+Tue Feb 12 17:24:57 2013 +0000
+Author: Irfan Sheriff <1003344@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: PyieOxIc
+Bytes: 119
+This will keep writing it again and again. You need to check if it is already there and only write if it does not exist
+
