@@ -1,0 +1,11 @@
+Revision: 95a7c9316255e5b09535f689b13e1544b80ecabc
+Patch-set: 1
+File: audio/AudioPolicyManagerBase.cpp
+
+2435
+Wed Aug 21 00:07:00 2013 +0000
+Author: Eric Laurent <1003259@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: 0d3e90ea_0814ebfe
+Bytes: 80
+if the property is not set we should select back mic to be backwards compatible.
+
