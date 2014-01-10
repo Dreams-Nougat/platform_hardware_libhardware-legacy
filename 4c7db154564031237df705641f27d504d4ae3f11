@@ -1,0 +1,11 @@
+Revision: 4c7db154564031237df705641f27d504d4ae3f11
+Base-for-patch-set: 3
+File: vibrator/vibrator.c
+
+30
+Fri Jan 10 16:45:03 2014 +0000
+Author: David Turner <1000411@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ad33cd7d_82427ac7
+Bytes: 303
+quick question: what's the plan for emulating this now? I'd really like to avoid introducing new goldfish devices in the kernel tree, since they're a pain to maintain. Does the HAL infrastructure now allows emulator-specific libraries. If so, one that would use qemu_control_command would be easy to do.
+
