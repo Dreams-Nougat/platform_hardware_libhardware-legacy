@@ -9,3 +9,11 @@ UUID: ad33cd7d_82427ac7
 Bytes: 303
 quick question: what's the plan for emulating this now? I'd really like to avoid introducing new goldfish devices in the kernel tree, since they're a pain to maintain. Does the HAL infrastructure now allows emulator-specific libraries. If so, one that would use qemu_control_command would be easy to do.
 
+30
+Fri Jan 10 16:52:03 2014 +0000
+Author: David Wagner <1012411@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ad33cd7d_82427ac7
+UUID: ad33cd7d_029f4a02
+Bytes: 95
+this is done here: https://android-review.googlesource.com/#/c/54690/4/vibrator/vibrator_qemu.c
+
