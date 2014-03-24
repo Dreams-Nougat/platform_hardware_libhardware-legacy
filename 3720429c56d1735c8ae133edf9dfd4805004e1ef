@@ -9,3 +9,11 @@ UUID: bcdf857e_30ff0ad2
 Bytes: 144
 It is not necessary. adroid_net_wifi_closeSupplicantConnection() calls  wifi_close_supplicant_connection() and it will call wifi_close_sockets()
 
+592:4-592:22
+Mon Mar 24 18:36:29 2014 +0000
+Author: Narayan Reddy <1043179@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: bcdf857e_30ff0ad2
+UUID: 9cb2c15a_461f9073
+Bytes: 123
+adroid_net_wifi_closeSupplicantConnection() is not getting called in KK version. Please refer to bug 62385 for more details
+
