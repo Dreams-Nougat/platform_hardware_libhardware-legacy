@@ -17,3 +17,11 @@ UUID: 9cb2c15a_461f9073
 Bytes: 123
 adroid_net_wifi_closeSupplicantConnection() is not getting called in KK version. Please refer to bug 62385 for more details
 
+592:4-592:22
+Mon Mar 24 19:07:02 2014 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 9cb2c15a_461f9073
+UUID: 9cb2c15a_06910838
+Bytes: 84
+But it is not the reason to add this hack. It should be fixed then in wifi framework
+
