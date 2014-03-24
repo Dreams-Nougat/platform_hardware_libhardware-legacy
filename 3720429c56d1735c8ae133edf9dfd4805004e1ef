@@ -1,0 +1,11 @@
+Revision: 3720429c56d1735c8ae133edf9dfd4805004e1ef
+Patch-set: 1
+File: wifi/wifi.c
+
+592:4-592:22
+Mon Mar 24 18:15:03 2014 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: bcdf857e_30ff0ad2
+Bytes: 144
+It is not necessary. adroid_net_wifi_closeSupplicantConnection() calls  wifi_close_supplicant_connection() and it will call wifi_close_sockets()
+
