@@ -1,0 +1,18 @@
+Revision: 65dee7117d03c308052519af4aeaa5d469cd9299
+Patch-set: 1
+File: wifi/wifi.c
+
+52:31-52:37
+Wed May 07 20:47:10 2014 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: 0a6cc413_f980736e
+Bytes: 47
+It is unnecessary - TERMINATE is global command
+
+712:8-712:11
+Wed May 07 20:47:10 2014 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ca654c2b_f42eb8c3
+Bytes: 53
+Timeout is already implemented in wifi_send_command()
+
