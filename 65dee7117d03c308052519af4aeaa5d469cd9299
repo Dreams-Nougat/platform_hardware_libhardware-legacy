@@ -27,6 +27,15 @@ UUID: ca138c9f_87610890
 Bytes: 166
 Current (mainstream wpa_supplicant in case of TERMINATE command (global) will not interpret it as p2p, but will send it to both interfaces. (just tested it manually).
 
+52:31-52:37
+Thu May 08 19:42:09 2014 +0000
+Author: mahesh kumar <1017493@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ca138c9f_87610890
+UUID: ca138c9f_6d2e6db2
+Bytes: 405
+yes main stream supplicant registered for SIGHUP SIGINT signals and when called it will send terminate on both the interfaces to framework. but SIGSEGV is not registered its not feasible to register for this in supplicant.
+please test with kill -SIGSEGV until supplicant crashes then all the commands from framework to supplicant will fail and we should manually turn off and turn on wlan to make it work.
+
 712:8-712:11
 Wed May 07 20:47:10 2014 +0000
 Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
@@ -53,4 +62,12 @@ Parent: 6a02a043_4588aa11
 UUID: ca138c9f_c7d94002
 Bytes: 98
 I would rather prefer to catch crash and fix it than silently recover and crash again and again...
+
+712:8-712:11
+Thu May 08 19:42:09 2014 +0000
+Author: mahesh kumar <1017493@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ca138c9f_c7d94002
+UUID: aa62d821_4841cb6d
+Bytes: 194
+As developer even i prefer to debug segmentation fault, but from enduser/customer prospective there should be a recovery mechanism and anyhow logcat logs will dump the stack trace for debugging.
 
