@@ -19,6 +19,14 @@ if we dont specify the interface name then the event is handled by p2p wifi moni
 
 sending SUP_DISCONNECTION_EVENT to wifip2pservice is not restarting the supplicant.
 
+52:31-52:37
+Thu May 08 17:41:32 2014 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 6a02a043_a5b356ef
+UUID: ca138c9f_87610890
+Bytes: 166
+Current (mainstream wpa_supplicant in case of TERMINATE command (global) will not interpret it as p2p, but will send it to both interfaces. (just tested it manually).
+
 712:8-712:11
 Wed May 07 20:47:10 2014 +0000
 Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
@@ -37,4 +45,12 @@ test scenario:
 supplicant crashed due to segmentation error and there is no recovery mechanism to restart the supplicant.
 
 to recover from this errors we can specify timeout in poll command and check if the supplicant is active or not.
+
+712:8-712:11
+Thu May 08 17:41:32 2014 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 6a02a043_4588aa11
+UUID: ca138c9f_c7d94002
+Bytes: 98
+I would rather prefer to catch crash and fix it than silently recover and crash again and again...
 
