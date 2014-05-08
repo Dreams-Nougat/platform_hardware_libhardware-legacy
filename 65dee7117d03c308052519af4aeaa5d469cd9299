@@ -9,10 +9,32 @@ UUID: 0a6cc413_f980736e
 Bytes: 47
 It is unnecessary - TERMINATE is global command
 
+52:31-52:37
+Thu May 08 06:55:13 2014 +0000
+Author: mahesh kumar <1017493@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 0a6cc413_f980736e
+UUID: 6a02a043_a5b356ef
+Bytes: 229
+if we dont specify the interface name then the event is handled by p2p wifi monitor instance since events without prefix belong to p2p0 monitor.
+
+sending SUP_DISCONNECTION_EVENT to wifip2pservice is not restarting the supplicant.
+
 712:8-712:11
 Wed May 07 20:47:10 2014 +0000
 Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: ca654c2b_f42eb8c3
 Bytes: 53
 Timeout is already implemented in wifi_send_command()
+
+712:8-712:11
+Thu May 08 06:55:13 2014 +0000
+Author: mahesh kumar <1017493@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ca654c2b_f42eb8c3
+UUID: 6a02a043_4588aa11
+Bytes: 292
+this timeout is to check if supplicant is active or not.
+test scenario:
+supplicant crashed due to segmentation error and there is no recovery mechanism to restart the supplicant.
+
+to recover from this errors we can specify timeout in poll command and check if the supplicant is active or not.
 
