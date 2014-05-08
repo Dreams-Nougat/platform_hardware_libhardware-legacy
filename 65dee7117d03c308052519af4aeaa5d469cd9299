@@ -36,6 +36,14 @@ Bytes: 405
 yes main stream supplicant registered for SIGHUP SIGINT signals and when called it will send terminate on both the interfaces to framework. but SIGSEGV is not registered its not feasible to register for this in supplicant.
 please test with kill -SIGSEGV until supplicant crashes then all the commands from framework to supplicant will fail and we should manually turn off and turn on wlan to make it work.
 
+52:31-52:37
+Thu May 08 20:00:17 2014 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ca138c9f_6d2e6db2
+UUID: ca138c9f_ad6ea5cc
+Bytes: 57
+Right, but my point is that IFNAME=wlan0 is not necessary
+
 712:8-712:11
 Wed May 07 20:47:10 2014 +0000
 Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
@@ -70,4 +78,12 @@ Parent: ca138c9f_c7d94002
 UUID: aa62d821_4841cb6d
 Bytes: 194
 As developer even i prefer to debug segmentation fault, but from enduser/customer prospective there should be a recovery mechanism and anyhow logcat logs will dump the stack trace for debugging.
+
+712:8-712:11
+Thu May 08 20:00:17 2014 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: aa62d821_4841cb6d
+UUID: ca138c9f_ed3b7dbc
+Bytes: 298
+I see your point but it is still somehow not very convincing - my point is that if there is a situation with real crash (no kill manually), I would like to see it and fix - hiding it may not improve user experience. Are you trying to resolve real problem? Maybe you can provide crash scenario then.
 
