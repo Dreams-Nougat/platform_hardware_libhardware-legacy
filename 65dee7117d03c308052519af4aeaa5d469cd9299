@@ -44,6 +44,14 @@ UUID: ca138c9f_ad6ea5cc
 Bytes: 57
 Right, but my point is that IFNAME=wlan0 is not necessary
 
+52:31-52:37
+Fri May 09 05:26:12 2014 +0000
+Author: mahesh kumar <1017493@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ca138c9f_ad6ea5cc
+UUID: 8a999485_3b7e8bf4
+Bytes: 180
+i have already specified this above that if IFNAME=wlan0 is not specified then the event is handled by p2p wifi monitor instance since events without prefix belong to p2p0 monitor.
+
 712:8-712:11
 Wed May 07 20:47:10 2014 +0000
 Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
@@ -86,4 +94,14 @@ Parent: aa62d821_4841cb6d
 UUID: ca138c9f_ed3b7dbc
 Bytes: 298
 I see your point but it is still somehow not very convincing - my point is that if there is a situation with real crash (no kill manually), I would like to see it and fix - hiding it may not improve user experience. Are you trying to resolve real problem? Maybe you can provide crash scenario then.
+
+712:8-712:11
+Fri May 09 05:26:12 2014 +0000
+Author: mahesh kumar <1017493@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ca138c9f_ed3b7dbc
+UUID: 8a999485_db8d7fdd
+Bytes: 446
+there was a segmentation fault which is already fixed. but my point is that hitting the crash every time  is very less likely so restarting the supplicant is right thing to do.Any how since we have call trace we can always debug the issues.
+
+when i see from end user perspective restarting supplicant is not a big issue when compared to leaving the entire wifi in some bad state(he will not able to perform any operation(connect/disconnect/scan))
 
