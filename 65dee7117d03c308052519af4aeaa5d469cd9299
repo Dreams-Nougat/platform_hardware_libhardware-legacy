@@ -52,6 +52,14 @@ UUID: 8a999485_3b7e8bf4
 Bytes: 180
 i have already specified this above that if IFNAME=wlan0 is not specified then the event is handled by p2p wifi monitor instance since events without prefix belong to p2p0 monitor.
 
+52:31-52:37
+Fri May 09 16:49:14 2014 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 8a999485_3b7e8bf4
+UUID: eac4d062_2f88f510
+Bytes: 260
+In new (mainstream) wpa_supplicant TERMINATE without prefix is global and wil be sent to ALL interfaces including wlan0. But if you still insist on specific interface at least you should use real one, and not "wlan0" - for example other vendors may use mwlan0.
+
 712:8-712:11
 Wed May 07 20:47:10 2014 +0000
 Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
@@ -104,4 +112,12 @@ Bytes: 446
 there was a segmentation fault which is already fixed. but my point is that hitting the crash every time  is very less likely so restarting the supplicant is right thing to do.Any how since we have call trace we can always debug the issues.
 
 when i see from end user perspective restarting supplicant is not a big issue when compared to leaving the entire wifi in some bad state(he will not able to perform any operation(connect/disconnect/scan))
+
+712:8-712:11
+Fri May 09 16:49:14 2014 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 8a999485_db8d7fdd
+UUID: eac4d062_8f70295f
+Bytes: 83
+This becomes theological argument, so I leave decision to connectivity team member.
 
