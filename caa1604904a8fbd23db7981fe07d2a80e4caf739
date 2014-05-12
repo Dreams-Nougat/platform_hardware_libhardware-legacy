@@ -1,0 +1,25 @@
+Revision: caa1604904a8fbd23db7981fe07d2a80e4caf739
+Patch-set: 6
+File: wifi/wifi.c
+
+718:18-718:51
+Mon May 12 14:36:26 2014 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: 6a21c030_421f8875
+Bytes: 323
+It is not safe to send command here. wpa_supplicant socket control interface is not multithread-proof. Wifi manager has syncronization in sending commands, but sending from here will be not syncronized. However, adding sync. primitives here may be not a good idea, so I would suggest to add ping test to Wifi manager layer.
+
+742:24-742:37
+Mon May 12 14:36:26 2014 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: 4a16bcdd_415d48a3
+Bytes: 29
+Thanks, this is what I meant.
+
+763:37-763:58
+Mon May 12 14:36:26 2014 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: 4a16bcdd_0130b076
+Bytes: 39
+You need IFNAME= here as well, correct?
+
