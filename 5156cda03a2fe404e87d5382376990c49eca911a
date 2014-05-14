@@ -1,0 +1,25 @@
+Revision: 5156cda03a2fe404e87d5382376990c49eca911a
+Patch-set: 1
+File: wifi/wifi.c
+
+692:9-692:18
+Wed May 14 18:21:29 2014 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: 2ad50879_67d3b294
+Bytes: 12
+obsolete var
+
+693:4-693:10
+Wed May 14 18:21:29 2014 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: eac690d8_8577c2e7
+Bytes: 12
+obsolete var
+
+716:47-716:52
+Wed May 14 18:21:29 2014 +0000
+Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: eac690d8_8545027c
+Bytes: 33
+Is 30 sec reasonable? Maybe less?
+
