@@ -9,6 +9,14 @@ UUID: 2ad50879_67d3b294
 Bytes: 12
 obsolete var
 
+692:9-692:18
+Thu May 15 04:23:52 2014 +0000
+Author: mahesh kumar <1017493@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 2ad50879_67d3b294
+UUID: 6a4e2058_45cbea51
+Bytes: 4
+Done
+
 693:4-693:10
 Wed May 14 18:21:29 2014 +0000
 Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
@@ -16,10 +24,26 @@ UUID: eac690d8_8577c2e7
 Bytes: 12
 obsolete var
 
+693:4-693:10
+Thu May 15 04:23:52 2014 +0000
+Author: mahesh kumar <1017493@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: eac690d8_8577c2e7
+UUID: 6a4e2058_65d8ee26
+Bytes: 4
+Done
+
 716:47-716:52
 Wed May 14 18:21:29 2014 +0000
 Author: Dmitry Shmidt <1000414@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: eac690d8_8545027c
 Bytes: 33
 Is 30 sec reasonable? Maybe less?
+
+716:47-716:52
+Thu May 15 04:23:52 2014 +0000
+Author: mahesh kumar <1017493@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: eac690d8_8545027c
+UUID: 0a78446e_ea4bcfe2
+Bytes: 139
+since its detection of supplicant is active or not i guess 30 secs should be fine, If we reduce the time then it might be little excessive.
 
