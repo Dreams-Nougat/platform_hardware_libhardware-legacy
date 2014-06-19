@@ -1,0 +1,14 @@
+Revision: 5e9af7f845ade1dccba7c20dffd87006cdb86d72
+Patch-set: 1
+File: audio/AudioPolicyManagerBase.cpp
+
+976:14-976:20
+Thu Jun 19 15:31:06 2014 +0000
+Author: Eric Laurent <1003259@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: c4ce254b_c633267b
+Bytes: 352
+I don't see why this is needed.
+0 or AUDIO_DEVICE_NONE is a convention indicated no device selection which is valid for both input and output devices.
+This parameter is sent to an input stream so the context clearly indicates it is a input device that is reset to none.
+Changing this would cause audio HALs comparing the value to 0 to not work anymore.
+
