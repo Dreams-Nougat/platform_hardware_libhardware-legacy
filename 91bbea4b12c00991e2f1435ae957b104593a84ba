@@ -1,0 +1,11 @@
+Revision: 91bbea4b12c00991e2f1435ae957b104593a84ba
+Patch-set: 1
+File: /COMMIT_MSG
+
+9:0-9:72
+Thu Jun 19 03:18:55 2014 +0000
+Author: Wenjie Gong <1023094@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: 84d18de4_d5666ea9
+Bytes: 58
+the length of a line should be no more than 70 characters.
+
