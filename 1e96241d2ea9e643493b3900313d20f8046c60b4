@@ -1,0 +1,13 @@
+Revision: 1e96241d2ea9e643493b3900313d20f8046c60b4
+Patch-set: 3
+File: /COMMIT_MSG
+
+9:8-9:12
+Wed Jul 09 15:26:51 2014 +0000
+Author: Eric Laurent <1003259@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: f9f75445_1dd4f327
+Bytes: 223
+I don't understand the race condition. All calls to AudioPolicyManager are protected by a mutex.
+There must be something else causing a failure to change for a new device if needed.
+Can you add a precise repro case to help?
+
