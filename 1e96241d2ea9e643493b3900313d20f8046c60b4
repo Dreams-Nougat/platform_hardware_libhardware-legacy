@@ -11,3 +11,12 @@ I don't understand the race condition. All calls to AudioPolicyManager are prote
 There must be something else causing a failure to change for a new device if needed.
 Can you add a precise repro case to help?
 
+File: include/hardware_legacy/AudioPolicyManagerBase.h
+
+289:17-289:30
+Wed Jul 16 00:14:22 2014 +0000
+Author: Eric Laurent <1003259@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: f9c4b462_7e00e59a
+Bytes: 62
+please initialize mForceRouting in AudioOutputDescriptor CSTOR
+
