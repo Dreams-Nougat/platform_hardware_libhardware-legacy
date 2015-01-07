@@ -123,6 +123,7 @@ struct wpa_driver_nl80211_data {
 	struct dl_list list;
 	struct dl_list wiphy_list;
 	char phyname[32];
+	u8 perm_addr[ETH_ALEN];
 	void *ctx;
 	int ifindex;
 	int if_removed;
@@ -177,8 +178,11 @@ struct wpa_driver_nl80211_data {
 	unsigned int start_iface_up:1;
 	unsigned int test_use_roc_tx:1;
 	unsigned int ignore_deauth_event:1;
+	unsigned int roaming_vendor_cmd_avail:1;
 	unsigned int dfs_vendor_cmd_avail:1;
 	unsigned int have_low_prio_scan:1;
+	unsigned int force_connect_cmd:1;
+	unsigned int addr_changed:1;
 
 	u64 remain_on_chan_cookie;
 	u64 send_action_cookie;
@@ -193,6 +197,8 @@ struct wpa_driver_nl80211_data {
 	int eapol_tx_sock;
 
 	int eapol_sock; /* socket for EAPOL frames */
+
+	struct nl_handle *rtnl_sk; /* nl_sock for NETLINK_ROUTE */
 
 	int default_if_indices[16];
 	int *if_indices;
