@@ -645,7 +645,7 @@ int wifi_wait_on_socket(char *buf, size_t buflen)
     char *match, *match2;
 
     if (monitor_conn == NULL) {
-        return snprintf(buf, buflen, "IFNAME=%s %s - connection closed",
+        return snprintf(buf, buflen, "IFNAME=any %s - connection closed",
                         primary_iface, WPA_EVENT_TERMINATING);
     }
 
@@ -653,7 +653,7 @@ int wifi_wait_on_socket(char *buf, size_t buflen)
 
     /* Terminate reception on exit socket */
     if (result == -2) {
-        return snprintf(buf, buflen, "IFNAME=%s %s - connection closed",
+        return snprintf(buf, buflen, "IFNAME=any %s - connection closed",
                         primary_iface, WPA_EVENT_TERMINATING);
     }
 
