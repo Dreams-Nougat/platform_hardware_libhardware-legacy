@@ -111,9 +111,16 @@ static const char SUPPLICANT_NAME[]     = "wpa_supplicant";
 static const char SUPP_PROP_NAME[]      = "init.svc.wpa_supplicant";
 static const char P2P_SUPPLICANT_NAME[] = "p2p_supplicant";
 static const char P2P_PROP_NAME[]       = "init.svc.p2p_supplicant";
+static const char MESH_SUPPLICANT_NAME[]= "mesh_supplicant";
+static const char MESH_PROP_NAME[]      = "init.svc.mesh_supplicant";
+static const char P2P_MESH_SUPPLICANT_NAME[] = "p2p_mesh_supplicant";
+static const char P2P_MESH_PROP_NAME[]       = "init.svc.p2p_mesh_supplicant";
 static const char SUPP_CONFIG_TEMPLATE[]= "/system/etc/wifi/wpa_supplicant.conf";
+static const char MESH_CONFIG_TEMPLATE[]= "/system/etc/wifi/mesh_supplicant.conf";
 static const char SUPP_CONFIG_FILE[]    = "/data/misc/wifi/wpa_supplicant.conf";
 static const char P2P_CONFIG_FILE[]     = "/data/misc/wifi/p2p_supplicant.conf";
+static const char MESH_CONFIG_FILE[]    = "/data/misc/wifi/mesh_supplicant.conf";
+static const char P2P_MESH_CONFIG_FILE[]= "/data/misc/wifi/p2p_mesh_supplicant.conf";
 static const char CONTROL_IFACE_PATH[]  = "/data/misc/wifi/sockets";
 static const char MODULE_FILE[]         = "/proc/modules";
 
@@ -374,7 +381,7 @@ int ensure_entropy_file_exists()
     return 0;
 }
 
-int ensure_config_file_exists(const char *config_file)
+int ensure_config_file_exists(const char *config_file, const char *config_template)
 {
     char buf[2048];
     int srcfd, destfd;
@@ -395,9 +402,9 @@ int ensure_config_file_exists(const char *config_file)
         return -1;
     }
 
-    srcfd = TEMP_FAILURE_RETRY(open(SUPP_CONFIG_TEMPLATE, O_RDONLY));
+    srcfd = TEMP_FAILURE_RETRY(open(config_template, O_RDONLY));
     if (srcfd < 0) {
-        ALOGE("Cannot open \"%s\": %s", SUPP_CONFIG_TEMPLATE, strerror(errno));
+        ALOGE("Cannot open \"%s\": %s", config_template, strerror(errno));
         return -1;
     }
 
@@ -439,20 +446,40 @@ int ensure_config_file_exists(const char *config_file)
     return 0;
 }
 
-int wifi_start_supplicant(int p2p_supported)
+int wifi_start_supplicant(int p2p_supported, int mesh_supported)
 {
     char supp_status[PROPERTY_VALUE_MAX] = {'\0'};
     int count = 200; /* wait at most 20 seconds for completion */
     const prop_info *pi;
     unsigned serial = 0, i;
 
-    if (p2p_supported) {
+    if (p2p_supported && mesh_supported) {
+        strcpy(supplicant_name, P2P_MESH_SUPPLICANT_NAME);
+        strcpy(supplicant_prop_name, P2P_MESH_PROP_NAME);
+
+        /* Ensure p2p_mesh config file is created */
+        if (ensure_config_file_exists(P2P_MESH_CONFIG_FILE, SUPP_CONFIG_TEMPLATE) < 0) {
+            ALOGE("Failed to create a p2p_mesh config file");
+            return -1;
+        }
+
+    } else if (p2p_supported) {
         strcpy(supplicant_name, P2P_SUPPLICANT_NAME);
         strcpy(supplicant_prop_name, P2P_PROP_NAME);
 
         /* Ensure p2p config file is created */
-        if (ensure_config_file_exists(P2P_CONFIG_FILE) < 0) {
+        if (ensure_config_file_exists(P2P_CONFIG_FILE, SUPP_CONFIG_TEMPLATE) < 0) {
             ALOGE("Failed to create a p2p config file");
+            return -1;
+        }
+
+    } else if (mesh_supported) {
+        strcpy(supplicant_name, MESH_SUPPLICANT_NAME);
+        strcpy(supplicant_prop_name, MESH_PROP_NAME);
+
+        /* Ensure mesh config file is created */
+        if (ensure_config_file_exists(MESH_CONFIG_FILE, MESH_CONFIG_TEMPLATE) < 0) {
+            ALOGE("Failed to create a mesh config file");
             return -1;
         }
 
@@ -468,7 +495,7 @@ int wifi_start_supplicant(int p2p_supported)
     }
 
     /* Before starting the daemon, make sure its config file exists */
-    if (ensure_config_file_exists(SUPP_CONFIG_FILE) < 0) {
+    if (ensure_config_file_exists(SUPP_CONFIG_FILE, SUPP_CONFIG_TEMPLATE) < 0) {
         ALOGE("Wi-Fi will not be enabled");
         return -1;
     }
@@ -521,14 +548,20 @@ int wifi_start_supplicant(int p2p_supported)
     return -1;
 }
 
-int wifi_stop_supplicant(int p2p_supported)
+int wifi_stop_supplicant(int p2p_supported, int mesh_supported)
 {
     char supp_status[PROPERTY_VALUE_MAX] = {'\0'};
     int count = 50; /* wait at most 5 seconds for completion */
 
-    if (p2p_supported) {
+    if (p2p_supported && mesh_supported) {
+        strcpy(supplicant_name, P2P_MESH_SUPPLICANT_NAME);
+        strcpy(supplicant_prop_name, P2P_MESH_PROP_NAME);
+    } else if (p2p_supported) {
         strcpy(supplicant_name, P2P_SUPPLICANT_NAME);
         strcpy(supplicant_prop_name, P2P_PROP_NAME);
+    } else if (mesh_supported) {
+        strcpy(supplicant_name, MESH_SUPPLICANT_NAME);
+        strcpy(supplicant_prop_name, MESH_PROP_NAME);
     } else {
         strcpy(supplicant_name, SUPPLICANT_NAME);
         strcpy(supplicant_prop_name, SUPP_PROP_NAME);
