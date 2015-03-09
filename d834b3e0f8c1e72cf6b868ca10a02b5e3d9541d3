@@ -1,0 +1,11 @@
+Revision: d834b3e0f8c1e72cf6b868ca10a02b5e3d9541d3
+Patch-set: 1
+File: wifi/wifi.c
+
+432:0-432:8
+Mon Mar 09 21:23:07 2015 +0000
+Author: Takeshi Aimi <1017042@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: 9759d8ea_0533f2a8
+Bytes: 21
+trailing white spaces
+
