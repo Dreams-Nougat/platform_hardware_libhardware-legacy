@@ -47,7 +47,7 @@ const char * const NEW_PATHS[] = {
 //XXX static pthread_once_t g_initialized = THREAD_ONCE_INIT;
 static int g_initialized = 0;
 static int g_fds[OUR_FD_COUNT];
-static int g_error = 1;
+static int g_error = -1;
 
 static int
 open_file_descriptors(const char * const paths[])
@@ -57,7 +57,7 @@ open_file_descriptors(const char * const paths[])
         int fd = open(paths[i], O_RDWR | O_CLOEXEC);
         if (fd < 0) {
             fprintf(stderr, "fatal error opening \"%s\"\n", paths[i]);
-            g_error = errno;
+            g_error = -errno;
             return -1;
         }
         g_fds[i] = fd;
@@ -95,7 +95,7 @@ acquire_wake_lock(int lock, const char* id)
         fd = g_fds[ACQUIRE_PARTIAL_WAKE_LOCK];
     }
     else {
-        return EINVAL;
+        return -EINVAL;
     }
 
     return write(fd, id, strlen(id));
