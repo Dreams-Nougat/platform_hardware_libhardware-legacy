@@ -9,6 +9,14 @@ UUID: 6553ee27_35e47a62
 Bytes: 76
 move this before the fprintf, just in case? and add ": %s", strerror(errno)?
 
+60
+Thu Dec 10 18:29:22 2015 +0000
+Author: Rom Lemarchand <1018087@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 6553ee27_35e47a62
+UUID: 454eea83_8e8c3f5a
+Bytes: 4
+Done
+
 101
 Thu Dec 10 16:30:15 2015 +0000
 Author: Elliott Hughes <1003224@85c56323-6fa9-3386-8a01-6480fb634889>
@@ -16,10 +24,26 @@ UUID: 05487277_12fd1293
 Bytes: 91
 do you care if the write fails? (since you're not using errno directly to report failures.)
 
+101
+Thu Dec 10 18:29:22 2015 +0000
+Author: Rom Lemarchand <1018087@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 05487277_12fd1293
+UUID: 855c6237_3b258f9f
+Bytes: 4
+Done
+
 113
 Thu Dec 10 16:30:15 2015 +0000
 Author: Elliott Hughes <1003224@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: 6553ee27_15e97e38
 Bytes: 9
 here too.
+
+113
+Thu Dec 10 18:29:22 2015 +0000
+Author: Rom Lemarchand <1018087@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 6553ee27_15e97e38
+UUID: 454eea83_19477ba4
+Bytes: 122
+Done - I checked all the code, and it looks like of the few people who check return codes, they assume that <0 means fail.
 
