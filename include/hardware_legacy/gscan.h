@@ -14,6 +14,7 @@ typedef enum {
     WIFI_BAND_A_WITH_DFS = 6,               // 5 GHz with DFS
     WIFI_BAND_ABG = 3,                      // 2.4 GHz + 5 GHz; no DFS
     WIFI_BAND_ABG_WITH_DFS = 7,             // 2.4 GHz + 5 GHz with DFS
+    WIFI_BAND_A_IR_ALLOWED = 8,             // 5 GHz without DFS, IR allowed
 } wifi_band;
 
 const unsigned MAX_CHANNELS                = 16;
