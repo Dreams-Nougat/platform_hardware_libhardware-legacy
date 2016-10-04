@@ -215,6 +215,7 @@ typedef struct wlan_driver_wake_reason_cnt_t {
 #include "wifi_config.h"
 #include "wifi_nan.h"
 #include "wifi_offload.h"
+#include "roam.h"
 
 //wifi HAL function pointer table
 typedef struct {
@@ -292,8 +293,6 @@ typedef struct {
     wifi_error (* wifi_set_passpoint_list)(wifi_request_id id, wifi_interface_handle iface,
             int num, wifi_passpoint_network *networks, wifi_passpoint_event_handler handler);
     wifi_error (* wifi_reset_passpoint_list)(wifi_request_id id, wifi_interface_handle iface);
-    wifi_error (*wifi_set_bssid_blacklist)(wifi_request_id id, wifi_interface_handle iface,
-                  wifi_bssid_params params);
     wifi_error (*wifi_set_lci) (wifi_request_id id, wifi_interface_handle iface,
 	                             wifi_lci_information *lci);
     wifi_error (*wifi_set_lcr) (wifi_request_id id, wifi_interface_handle iface,
@@ -392,6 +391,12 @@ typedef struct {
      */
     wifi_error (*wifi_set_packet_filter)(wifi_interface_handle handle,
                                          const u8 *program, u32 len);
+    wifi_error (*wifi_get_roaming_capabilities)(wifi_interface_handle handle,
+                                                wifi_roaming_capabilities *caps);
+    wifi_error (*wifi_enable_firmware_roaming)(wifi_interface_handle handle,
+                                               fw_roaming_state_t state);
+    wifi_error (*wifi_configure_roaming)(wifi_interface_handle handle,
+                                         wifi_roaming_config *roaming_config);
 } wifi_hal_fn;
 wifi_error init_wifi_vendor_hal_func_table(wifi_hal_fn *fn);
 #ifdef __cplusplus
