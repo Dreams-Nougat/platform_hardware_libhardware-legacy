@@ -275,6 +275,10 @@ typedef struct {
                                  // monotonously increasing integer
     u32 written_records;         // number of records that was written to the buffer by driver,
                                  // monotonously increasing integer
+    u32 rb_size_to_be_cached;    // maximum size of ring buffer data to be cached in framework
+                                 // to enable debugging typical wifi issues. Different HALs can
+                                 // choose different values based on the contents stored in the
+                                 // ring buffer. The size should be mentioned in units of KBs.
 } wifi_ring_buffer_status;
 
 
