@@ -46,3 +46,11 @@ UUID: ff76b882_89626934
 Bytes: 130
 Not sure if this is a good function name. In addition to enable/disable, we are using this API to pause/resume FW roaming as well.
 
+54:16-54:22
+Fri Oct 14 14:29:53 2016 +0000
+Author: vamsi krishna <1092063@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ff76b882_89626934
+UUID: 3c05bec3_3adffdfb
+Bytes: 193
+Hi Randy, could you please let us know the difference between ENABLE and RESUME and between DISABLE and PAUSE. If there is no difference, can we remove PAUSE and RESUME from fw_roaming_state_t.
+
