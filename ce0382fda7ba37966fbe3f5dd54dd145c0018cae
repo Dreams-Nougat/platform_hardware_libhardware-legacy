@@ -54,3 +54,11 @@ UUID: 3c05bec3_3adffdfb
 Bytes: 193
 Hi Randy, could you please let us know the difference between ENABLE and RESUME and between DISABLE and PAUSE. If there is no difference, can we remove PAUSE and RESUME from fw_roaming_state_t.
 
+54:16-54:22
+Fri Oct 14 17:56:14 2016 +0000
+Author: Randy Pan <1086611@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 3c05bec3_3adffdfb
+UUID: 9c4b0a46_f53c92e4
+Bytes: 320
+DISABLE is a command that completely stops FW from doing the in-network roaming. PAUSE is sent by framework when it is about to start the out-network roaming, so that FW can hold off from in-network roaming till RESUME is sent by the framework. PAUSE/RESUME was requested by QCA to reduce the overhead of DISABLE/ENABLE.
+
