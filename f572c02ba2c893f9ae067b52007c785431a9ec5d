@@ -9,10 +9,26 @@ UUID: 1cad5b6a_a5393eef
 Bytes: 252
 Ideally the definition of ssid_t shouldn't be here as it should be something common for all the HAL uses. I understand we may not be able to fix this in the legacy HAL. But please add some comments so we don't forget this when implementing the new HAL.
 
+38:0-41:9
+Tue Oct 18 23:22:24 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 1cad5b6a_a5393eef
+UUID: bc28cfc6_8af2a02c
+Bytes: 17
+sure will update.
+
 56:16-56:22
 Mon Oct 17 04:47:59 2016 +0000
 Author: Randy Pan <1086611@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: 1cad5b6a_45464a70
 Bytes: 57
 My question on "enable" vs "resume" is not addressed yet.
+
+56:16-56:22
+Tue Oct 18 23:22:24 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 1cad5b6a_45464a70
+UUID: bc28cfc6_2afd7400
+Bytes: 4
+Done
 
