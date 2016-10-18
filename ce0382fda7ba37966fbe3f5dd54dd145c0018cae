@@ -9,12 +9,28 @@ UUID: ff76b882_0997393c
 Bytes: 37
 Add a one line title for this commit.
 
+6
+Tue Oct 18 23:22:24 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ff76b882_0997393c
+UUID: 1c28fb81_8d532181
+Bytes: 4
+Done
+
 9
 Tue Oct 11 17:08:45 2016 +0000
 Author: Randy Pan <1086611@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: ff76b882_a9e9e5aa
 Bytes: 18
 Nit: add a period?
+
+9
+Tue Oct 18 23:22:24 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ff76b882_a9e9e5aa
+UUID: 1c28fb81_6d40f5a1
+Bytes: 4
+Done
 
 11:0-13:33
 Tue Oct 11 17:08:45 2016 +0000
@@ -23,12 +39,28 @@ UUID: ff76b882_89d509d9
 Bytes: 53
 Nit: consider removing these from the commit message.
 
+11:0-13:33
+Tue Oct 18 23:22:24 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ff76b882_89d509d9
+UUID: 1c28fb81_4d4539b0
+Bytes: 4
+Done
+
 14
 Tue Oct 11 17:08:45 2016 +0000
 Author: Randy Pan <1086611@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: ff76b882_292955f5
 Bytes: 17
 Add a bug number?
+
+14
+Tue Oct 18 23:22:24 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ff76b882_292955f5
+UUID: 1c28fb81_cd30094d
+Bytes: 58
+Can you please share if we have one or I can create a BUG?
 
 File: include/hardware_legacy/roam.h
 
@@ -38,6 +70,14 @@ Author: Randy Pan <1086611@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: ff76b882_094d79c5
 Bytes: 78
 Nit: add some comments to explain what bssid blacklist and ssid whitelist are?
+
+43:0-48:22
+Tue Oct 18 23:22:24 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ff76b882_094d79c5
+UUID: 1c28fb81_6da7d55f
+Bytes: 4
+Done
 
 54:16-54:22
 Tue Oct 11 17:08:45 2016 +0000
@@ -61,4 +101,14 @@ Parent: 3c05bec3_3adffdfb
 UUID: 9c4b0a46_f53c92e4
 Bytes: 320
 DISABLE is a command that completely stops FW from doing the in-network roaming. PAUSE is sent by framework when it is about to start the out-network roaming, so that FW can hold off from in-network roaming till RESUME is sent by the framework. PAUSE/RESUME was requested by QCA to reduce the overhead of DISABLE/ENABLE.
+
+54:16-54:22
+Tue Oct 18 23:22:24 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 9c4b0a46_f53c92e4
+UUID: bc28cfc6_2a2454c8
+Bytes: 225
+For now we will go with enable/disable to completely start/stop firmware based roaming. 
+So if you say stop roaming and if firmware is in the middle of roaming it will say fail or else SUCCESS.
+The request is a blocking call.
 
