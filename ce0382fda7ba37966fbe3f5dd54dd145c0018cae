@@ -62,6 +62,14 @@ UUID: 1c28fb81_cd30094d
 Bytes: 58
 Can you please share if we have one or I can create a BUG?
 
+14
+Thu Oct 20 17:28:31 2016 +0000
+Author: Randy Pan <1086611@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 1c28fb81_cd30094d
+UUID: bc6c4f82_7e04b9c0
+Bytes: 18
+Please create one.
+
 File: include/hardware_legacy/roam.h
 
 43:0-48:22
@@ -111,4 +119,14 @@ Bytes: 225
 For now we will go with enable/disable to completely start/stop firmware based roaming. 
 So if you say stop roaming and if firmware is in the middle of roaming it will say fail or else SUCCESS.
 The request is a blocking call.
+
+54:16-54:22
+Thu Oct 20 17:28:31 2016 +0000
+Author: Randy Pan <1086611@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: bc28cfc6_2a2454c8
+UUID: bc6c4f82_f99a034c
+Bytes: 243
+It would be good to have an explicit error_code to indicate FW is in the middle of roaming. This way we can differentiate if from other real failures. 
+
+Now if FW is in the middle of roaming, how do we plan to notify framework when it is done?
 
