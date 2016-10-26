@@ -33,6 +33,23 @@ if (nd_offload == ENABLE)
 
 In general, it is recommended to prefix variables inside an enum meaningfully though the variables will be only inside a single enum.
 
+33
+Wed Oct 26 17:52:00 2016 +0000
+Author: Randy Pan <1086611@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: c14bdc44_12320c0e
+UUID: 218e78b3_c0ad2086
+Bytes: 171
+In that case the compiler will give an error like "redeclaration of enumerator 'ENABLE'".
+
+With that said, given ENABLE/DISABLE is such a general word, let's add a prefix.
+
+36:0-39:9
+Wed Oct 26 17:52:00 2016 +0000
+Author: Randy Pan <1086611@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: 218e78b3_23824ee8
+Bytes: 188
+Ideally we'd like to move this ssid_t out of roam.h. It should be common for the HAL. Maybe it is not feasible for this legacy HAL. Probably it is better to take care of it in the new HAL.
+
 File: include/hardware_legacy/wifi_hal.h
 
 60
