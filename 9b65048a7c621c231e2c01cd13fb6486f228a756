@@ -11,6 +11,14 @@ can we change these to something like below to be more specific
 ROAMING_DISABLE,
 ROAMING_ENABLE
 
+33
+Wed Oct 26 06:05:04 2016 +0000
+Author: Randy Pan <1086611@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: c14bdc44_f282e897
+UUID: 218e78b3_dd118b38
+Bytes: 176
+Since ENABLE and DISABLE the enums for fw_roaming_state_t and they are used by function wifi_enable_firmware_roaming(), I think it is redundant t ROAMING to ENABLE and DISABLE.
+
 File: include/hardware_legacy/wifi_hal.h
 
 60
@@ -19,4 +27,12 @@ Author: vamsi krishna <1092063@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: c14bdc44_d27de4d6
 Bytes: 153
 can we add one more status code here "WIFI_ERROR_BUSY" to indicate busy conditions for example when disable_roaming is received when roaming in progress.
+
+60
+Wed Oct 26 06:05:04 2016 +0000
+Author: Randy Pan <1086611@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: c14bdc44_d27de4d6
+UUID: 218e78b3_fd16472d
+Bytes: 123
+Yes, we need a specific error code to indicate FW is busy. That's exactly what I was asking for in my last review comments.
 
