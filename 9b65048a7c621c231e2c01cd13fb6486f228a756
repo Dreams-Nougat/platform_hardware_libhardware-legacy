@@ -1,0 +1,22 @@
+Revision: 9b65048a7c621c231e2c01cd13fb6486f228a756
+Patch-set: 4
+File: include/hardware_legacy/roam.h
+
+33
+Wed Oct 26 05:47:25 2016 +0000
+Author: vamsi krishna <1092063@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: c14bdc44_f282e897
+Bytes: 95
+can we change these to something like below to be more specific
+ROAMING_DISABLE,
+ROAMING_ENABLE
+
+File: include/hardware_legacy/wifi_hal.h
+
+60
+Wed Oct 26 05:47:25 2016 +0000
+Author: vamsi krishna <1092063@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: c14bdc44_d27de4d6
+Bytes: 153
+can we add one more status code here "WIFI_ERROR_BUSY" to indicate busy conditions for example when disable_roaming is received when roaming in progress.
+
