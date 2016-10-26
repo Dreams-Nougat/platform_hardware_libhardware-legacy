@@ -19,6 +19,20 @@ UUID: 218e78b3_dd118b38
 Bytes: 176
 Since ENABLE and DISABLE the enums for fw_roaming_state_t and they are used by function wifi_enable_firmware_roaming(), I think it is redundant t ROAMING to ENABLE and DISABLE.
 
+33
+Wed Oct 26 10:22:39 2016 +0000
+Author: vamsi krishna <1092063@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 218e78b3_dd118b38
+UUID: c14bdc44_12320c0e
+Bytes: 551
+Agree that these are supposed to be used only in wifi_enable_firmware_roaming(). But while coding we may end up using the bare declarations of enum variables something like below 
+if (state == ENABLE)
+
+So for example, if some other enum also needs similar enable/disable kind of variables for example nd_offload enable/disable, we need to write below kind of code and it creates confusion. 
+if (nd_offload == ENABLE)
+
+In general, it is recommended to prefix variables inside an enum meaningfully though the variables will be only inside a single enum.
+
 File: include/hardware_legacy/wifi_hal.h
 
 60
