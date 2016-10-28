@@ -761,6 +761,12 @@ typedef struct {
 
     u8 config_5g_channel;
     wifi_channel channel_5g_val;
+
+    /*
+       By default discovery MAC address randomization is enabled
+       and default interval value is 30 minutes i.e. 1800 seconds
+    */
+    u16 disc_mac_addr_rand_interval;
 } NanEnableRequest;
 
 /*
@@ -1147,8 +1153,12 @@ typedef struct {
        any interval.
        The SDF includes in OTA when enabled.
     */
-
     u32 dw_5g_interval_val;
+    /*
+       By default discovery MAC address randomization is enabled
+       and default interval value is 30 minutes i.e. 1800 seconds
+    */
+    u16 disc_mac_addr_rand_interval;
 } NanConfigRequest;
 
 /*
