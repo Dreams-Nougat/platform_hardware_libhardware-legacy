@@ -760,7 +760,15 @@ typedef struct {
 typedef struct {
     u16 publish_id;/* id  0 means new publish, any other id is existing publish */
     u16 ttl; /* how many seconds to run for. 0 means forever until canceled */
-    u16 period; /* periodicity of OTA unsolicited publish. Specified in increments of 500 ms */
+    /*
+       period: Awake DW Interval for publish(service)
+       Indicates the interval between two Discovery Windows in which
+       the device supporting the service is awake to transmit or
+       receive corresponding to the Service Discovery frames.
+       The unit is 512TU.
+       Valid values of Awake DW Interval are: 1, 2, 4, 8 and 16.
+    */
+    u16 period;
     NanPublishType publish_type;/* 0= unsolicited, solicited = 1, 2= both */
     NanTxType tx_type; /* 0 = broadcast, 1= unicast  if solicited publish */
     u8 publish_count; /* number of OTA Publish, 0 means forever until canceled */
@@ -851,7 +859,15 @@ typedef struct {
 typedef struct {
     u16 subscribe_id; /* id 0 means new subscribe, non zero is existing subscribe */
     u16 ttl; /* how many seconds to run for. 0 means forever until canceled */
-    u16 period;/* periodicity of OTA Active Subscribe. Units in increments of 500 ms , 0 = attempt every DW*/
+    /*
+       period: Awake DW Interval for publish(service)
+       Indicates the interval between two Discovery Windows in which
+       the device supporting the service is awake to transmit or
+       receive corresponding to the Service Discovery frames.
+       The unit is 512TU.
+       Valid values of Awake DW Interval are: 1, 2, 4, 8 and 16.
+    */
+    u16 period;
 
     /* Flag which specifies how the Subscribe request shall be processed. */
     NanSubscribeType subscribe_type; /* 0 - PASSIVE , 1- ACTIVE */
@@ -1063,6 +1079,25 @@ typedef struct {
     /* NAN Further availability Map */
     u8 config_fam;
     NanFurtherAvailabilityMap fam_val;
+    /* Configure 2.4GHz Nan Data Path DW Band */
+    u8 config_2dot4g_dw_band;
+    /*
+       Indicates the interval for Sync beacons and SDF's in 2.4GHz band.
+       Valid values of DW Interval are: 1, 2, 3, 4 and 5, 0 is reserved.
+       The SDF includes in OTA when enabled.
+    */
+
+    u32 dw_2dot4g_interval_val;
+    /* Configure 5GHz Nan Data Path DW Band */
+    u8 config_5g_dw_band;
+    /*
+       Indicates the interval for Sync beacons and SDF's in 5GHz band
+       Valid values of DW Interval are: 1, 2, 3, 4 and 5, 0 no wake up for
+       any interval.
+       The SDF includes in OTA when enabled.
+    */
+
+    u32 dw_5g_interval_val;
 } NanConfigRequest;
 
 /*
