@@ -58,6 +58,8 @@ typedef u32 NanDataPathId;
 #define NAN_MAX_FRAME_DATA_LEN                  504
 #define NAN_DP_MAX_APP_INFO_LEN                 512
 #define NAN_ERROR_STR_LEN                       255
+#define NAN_PMK_INFO_LEN                        32
+#define NAN_MAX_SCID_BUF_LEN                    1024
 
 /*
   Definition of various NanResponseType
@@ -220,6 +222,10 @@ typedef enum {
     NAN_DP_FORCE_CHANNEL_SETUP
 } NanDataPathChannelCfg;
 
+/* NAN Shared Key Security Cipher Suites Mask */
+#define NAN_CIPHER_SUITE_SHARED_KEY_128_MASK  0x01
+#define NAN_CIPHER_SUITE_SHARED_KEY_256_MASK  0x02
+
 /* Nan/NDP Capabilites info */
 typedef struct {
     u32 max_concurrent_nan_clusters;
@@ -235,6 +241,7 @@ typedef struct {
     u32 max_ndp_sessions;
     u32 max_app_info_len;
     u32 max_queued_transmit_followup_msgs;
+    u32 cipher_suites_supported;
 } NanCapabilities;
 
 /*
@@ -864,10 +871,28 @@ typedef struct {
       BIT2 - Disable followUp indication received (OTA).
     */
     u8 recv_indication_cfg;
+
+    /* NAN Cipher Suite Type */
+    NanCipherSuiteSharedKeyType cipher_type;
+    /* pmk length */
+    u8 pmk_len;
+    /* PMK */
+    u8 pmk[NAN_PMK_INFO_LEN];
+
+    /* Security Context Identifiers length */
+    u32 scid_len;
     /*
-      Nan accept policy for the specific service(publish)
+       Security Context Identifier attribute contains PMKID
+       shall be included in NDP setup and response messages.
+       Security Context Identifier, Identifies the Security
+       Context. For NAN Shared Key Cipher Suite, this field
+       contains the 16 octet PMKID identifying the PMK used
+       for setting up the Secure Data Path.
     */
-    NanServiceAcceptPolicy service_responder_policy;
+    u8 scid[NAN_MAX_SCID_BUF_LEN];
+
+    /* NAN secuirty required flag */
+    NanDataPathSecurityCfgStatus security_cfg;
 } NanPublishRequest;
 
 /*
@@ -988,6 +1013,28 @@ typedef struct {
       BIT2 - Disable followUp indication received (OTA).
     */
     u8 recv_indication_cfg;
+
+    /* NAN Cipher Suite Type */
+    NanCipherSuiteSharedKeyType cipher_type;
+    /* pmk length */
+    u8 pmk_len;
+    /* PMK */
+    u8 pmk[NAN_PMK_INFO_LEN];
+
+    /* Security Context Identifiers length */
+    u32 scid_len;
+    /*
+       Security Context Identifier attribute contains PMKID
+       shall be included in NDP setup and response messages.
+       Security Context Identifier, Identifies the Security
+       Context. For NAN Shared Key Cipher Suite, this field
+       contains the 16 octet PMKID identifying the PMK used
+       for setting up the Secure Data Path.
+    */
+    u8 scid[NAN_MAX_SCID_BUF_LEN];
+
+    /* NAN security required flag */
+    NanDataPathSecurityCfgStatus security_cfg;
 } NanSubscribeRequest;
 
 /*
@@ -1472,6 +1519,24 @@ typedef struct {
     /* NAN Cluster Attribute */
     u8 cluster_attribute_len;
     u8 cluster_attribute[NAN_MAX_CLUSTER_ATTRIBUTE_LEN];
+
+    /* NAN Cipher Suite */
+    u32 peer_cipher_type;
+
+    /* Security Context Identifiers length */
+    u32 scid_len;
+    /*
+       Security Context Identifier attribute contains PMKID
+       shall be included in NDP setup and response messages.
+       Security Context Identifier, Identifies the Security
+       Context. For NAN Shared Key Cipher Suite, this field
+       contains the 16 octet PMKID identifying the PMK used
+       for setting up the Secure Data Path.
+    */
+    u8 scid[NAN_MAX_SCID_BUF_LEN];
+
+    /* NAN secuirty required flag */
+    NanDataPathSecurityCfgStatus security_cfg;
 } NanMatchInd;
 
 /*
@@ -1706,6 +1771,13 @@ typedef struct {
     NanDataPathCfg ndp_cfg;
     /* App/Service information of the Initiator */
     NanDataPathAppInfo app_info;
+
+    /* NAN Cipher Suite Type */
+    u32 cipher_type;
+    /* pmk length */
+    u8 pmk_len;
+    /* PMK */
+    u8 pmk[NAN_PMK_INFO_LEN];
 } NanDataPathInitiatorRequest;
 
 /*
@@ -1730,6 +1802,13 @@ typedef struct {
     NanDataPathAppInfo app_info;
     /* Response Code indicating ACCEPT/REJECT/DEFER */
     NanDataPathResponseCode rsp_code;
+
+    /* NAN Cipher Suite Type */
+    u32 cipher_type;
+    /* pmk length */
+    u8 pmk_len;
+    /* PMK */
+    u8 pmk[NAN_PMK_INFO_LEN];
 } NanDataPathIndicationResponse;
 
 /* NDP termination info */
