@@ -1,5 +1,26 @@
 // Copyright 2006 The Android Open Source Project
 
+cc_library_shared {
+    name: "libhardware_legacy",
+    shared_libs: [
+        "liblog",
+    ],
+
+    export_include_dirs: ["include"],
+    local_include_dirs: ["include"],
+
+    cflags: [
+        "-DQEMU_HARDWARE",
+        "-Wno-unused-parameter",
+        "-Wno-gnu-designator",
+    ],
+
+    srcs: [
+        "power/power.c",
+        "uevent/uevent.c",
+    ],
+}
+
 cc_library {
     name: "libpower",
 
