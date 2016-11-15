@@ -1,0 +1,11 @@
+Revision: b06466da76c3e91c235950b7b67c29e114dfdc8d
+Patch-set: 3
+File: include/hardware_legacy/wifi_nan.h
+
+1311:4-1311:44
+Tue Nov 15 15:01:02 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: d0472c8e_ddac7e6d
+Bytes: 98
+Done to prevent build breakages downstream. Will remove (possibly later). But not part of the HAL.
+
