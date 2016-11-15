@@ -1,0 +1,8 @@
+Presubmit-Verified+1: Treehugger Robot <treehugger-gerrit@google.com>
+Verified+1: Etan Cohen <etancohen@google.com>
+Code-Review+2: Etan Cohen <etancohen@google.com>
+Submitted-by: Etan Cohen <etancohen@google.com>
+Submitted-at: Tue, 15 Nov 2016 17:20:21 +0000
+Reviewed-on: https://android-review.googlesource.com/302920
+Project: platform/hardware/libhardware_legacy
+Branch: refs/heads/master
