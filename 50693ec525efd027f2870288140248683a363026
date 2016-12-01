@@ -1,0 +1,25 @@
+Revision: 50693ec525efd027f2870288140248683a363026
+Patch-set: 3
+File: include/hardware_legacy/wifi_nan.h
+
+766:7-766:17
+Thu Dec 01 23:52:35 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: cd60731e_15d9a7dd
+Bytes: 89
+Implies that there is a mechanism to disable. Is there? I.e. is there a magic value here?
+
+769
+Thu Dec 01 23:52:35 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: cd60731e_d5de0fc8
+Bytes: 42
+name: add _sec to clarify that in seconds.
+
+1157:4-1161:36
+Thu Dec 01 23:52:35 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: cd60731e_55703ffc
+Bytes: 57
+comment in other CL about duplicating every configuration
+
