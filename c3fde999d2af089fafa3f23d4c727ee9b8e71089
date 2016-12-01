@@ -1,0 +1,18 @@
+Revision: c3fde999d2af089fafa3f23d4c727ee9b8e71089
+Patch-set: 4
+File: include/hardware_legacy/wifi_nan.h
+
+768:46-768:47
+Thu Dec 01 23:38:54 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: cd60731e_b5071382
+Bytes: 23
+what about the value 0?
+
+1080:3-1098:27
+Thu Dec 01 23:38:54 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: cd60731e_f556ab75
+Bytes: 157
+Why here and not (also) in NanEnableRequest? In fact shouldn't NanEnableRequest simply be the superset of NanConfigRequest (i.e. include as a sub-structure)?
+
