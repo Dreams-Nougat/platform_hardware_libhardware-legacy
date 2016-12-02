@@ -1,0 +1,48 @@
+Revision: ebf5e82d2b441cc3372d85207e9560c68f61bf2e
+Patch-set: 4
+File: include/hardware_legacy/wifi_nan.h
+
+62:48-62:52
+Fri Dec 02 00:02:38 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: cd60731e_356dc3e1
+Bytes: 54
+Below it says 16 octets - how do we get to 1024 bytes?
+
+228:0-230:36
+Fri Dec 02 00:02:38 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: cd60731e_7529fb99
+Bytes: 38
+These may be better expressed as masks
+
+853:1-856:29
+Fri Dec 02 00:02:38 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: cd60731e_1566c701
+Bytes: 165
+Why is this needed pre data-path setup? Is this related to the auto-accept only?
+
+If not does that imply all data-paths related to this discovery share the same PMK?
+
+870:11-870:19
+Fri Dec 02 00:02:38 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: cd60731e_75773bb3
+Bytes: 5
+spell
+
+871:4-871:32
+Fri Dec 02 00:02:38 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: cd60731e_9572d7c1
+Bytes: 22
+where is this defined?
+
+1768:3-1773:29
+Fri Dec 02 00:02:38 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: cd60731e_95c817b5
+Bytes: 79
+So it's here and in the response but in none of the indications for data-path!?
+
