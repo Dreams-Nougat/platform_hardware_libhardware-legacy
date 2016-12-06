@@ -9,6 +9,14 @@ UUID: cd60731e_b5071382
 Bytes: 23
 what about the value 0?
 
+768:46-768:47
+Tue Dec 06 22:39:11 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: cd60731e_b5071382
+UUID: cd60731e_0557b41e
+Bytes: 121
+Value 0 is default to 1. So if you don't pass period, firmware sets it as 1. Let me put a note saying default value is 1.
+
 1080:3-1098:27
 Thu Dec 01 23:38:54 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
