@@ -1,0 +1,11 @@
+Revision: b5bd23f576e2e5fa84d294f9f7f65b3355f35601
+Patch-set: 6
+File: include/hardware_legacy/wifi_nan.h
+
+599:3-605:6
+Tue Dec 06 22:31:52 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_682e2ba4
+Bytes: 80
+comments are not identical for 2.4 and 5 band - and in the case of '0' conflict.
+
