@@ -17,3 +17,11 @@ UUID: ed27f748_e8bd5b0c
 Bytes: 172
 Etan, the spec has different meaning for 0 in each case. I guess you don't want to disable both bands by having 0 defined. I can add the publish/subscribe comment for 5GHz.
 
+599:3-605:6
+Tue Dec 06 22:40:27 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_e8bd5b0c
+UUID: ed27f748_c8a5ffe8
+Bytes: 11
+sounds good
+
