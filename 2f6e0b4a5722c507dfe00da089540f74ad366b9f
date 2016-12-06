@@ -1,0 +1,39 @@
+Revision: 2f6e0b4a5722c507dfe00da089540f74ad366b9f
+Patch-set: 6
+File: include/hardware_legacy/wifi_nan.h
+
+876:4-876:31
+Tue Dec 06 23:24:41 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_a34f84ab
+Bytes: 4
+u32?
+
+895:4-895:32
+Tue Dec 06 23:24:41 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_8357e843
+Bytes: 2
+??
+
+1018:4-1018:31
+Tue Dec 06 23:24:41 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_2364d427
+Bytes: 4
+u32?
+
+1037:4-1037:32
+Tue Dec 06 23:24:41 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_4361d016
+Bytes: 2
+??
+
+1539:4-1539:32
+Tue Dec 06 23:24:41 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_c32de0bf
+Bytes: 2
+??
+
