@@ -9,3 +9,11 @@ UUID: ed27f748_682e2ba4
 Bytes: 80
 comments are not identical for 2.4 and 5 band - and in the case of '0' conflict.
 
+599:3-605:6
+Tue Dec 06 22:39:11 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_682e2ba4
+UUID: ed27f748_e8bd5b0c
+Bytes: 172
+Etan, the spec has different meaning for 0 in each case. I guess you don't want to disable both bands by having 0 defined. I can add the publish/subscribe comment for 5GHz.
+
