@@ -9,12 +9,28 @@ UUID: cd60731e_15d9a7dd
 Bytes: 89
 Implies that there is a mechanism to disable. Is there? I.e. is there a magic value here?
 
+766:7-766:17
+Tue Dec 06 23:58:35 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: cd60731e_15d9a7dd
+UUID: ed27f748_63f3acbe
+Bytes: 57
+Yes, we have config flag and with 0 value we can disable.
+
 769
 Thu Dec 01 23:52:35 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: cd60731e_d5de0fc8
 Bytes: 42
 name: add _sec to clarify that in seconds.
+
+769
+Tue Dec 06 23:58:35 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: cd60731e_d5de0fc8
+UUID: ed27f748_23c29442
+Bytes: 4
+Done
 
 1157:4-1161:36
 Thu Dec 01 23:52:35 2016 +0000
