@@ -9,12 +9,28 @@ UUID: cd60731e_356dc3e1
 Bytes: 54
 Below it says 16 octets - how do we get to 1024 bytes?
 
+62:48-62:52
+Tue Dec 06 23:32:53 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: cd60731e_356dc3e1
+UUID: ed27f748_e87a3b64
+Bytes: 82
+Multiple SCIDs are expected on the Initiator side, hence the length and MAX value.
+
 228:0-230:36
 Fri Dec 02 00:02:38 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: cd60731e_7529fb99
 Bytes: 38
 These may be better expressed as masks
+
+228:0-230:36
+Tue Dec 06 23:32:53 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: cd60731e_7529fb99
+UUID: ed27f748_a3da2405
+Bytes: 4
+Done
 
 853:1-856:29
 Fri Dec 02 00:02:38 2016 +0000
@@ -25,12 +41,28 @@ Why is this needed pre data-path setup? Is this related to the auto-accept only?
 
 If not does that imply all data-paths related to this discovery share the same PMK?
 
+853:1-856:29
+Tue Dec 06 23:32:53 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: cd60731e_1566c701
+UUID: ed27f748_e3925c39
+Bytes: 70
+Yes, its a pre auth mechanism. Yes we can use it for auto accept also.
+
 870:11-870:19
 Fri Dec 02 00:02:38 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: cd60731e_75773bb3
 Bytes: 5
 spell
+
+870:11-870:19
+Tue Dec 06 23:32:53 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: cd60731e_75773bb3
+UUID: ed27f748_c3788033
+Bytes: 4
+Done
 
 871:4-871:32
 Fri Dec 02 00:02:38 2016 +0000
@@ -39,10 +71,26 @@ UUID: cd60731e_9572d7c1
 Bytes: 22
 where is this defined?
 
+871:4-871:32
+Tue Dec 06 23:32:53 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: cd60731e_9572d7c1
+UUID: ed27f748_23885407
+Bytes: 19
+Present in the file
+
 1768:3-1773:29
 Fri Dec 02 00:02:38 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: cd60731e_95c817b5
 Bytes: 79
 So it's here and in the response but in none of the indications for data-path!?
+
+1768:3-1773:29
+Tue Dec 06 23:32:53 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: cd60731e_95c817b5
+UUID: ed27f748_c8473f1b
+Bytes: 61
+Correct, there is no need to pass this info to the framework.
 
