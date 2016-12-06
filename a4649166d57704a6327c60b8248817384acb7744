@@ -1,0 +1,11 @@
+Revision: a4649166d57704a6327c60b8248817384acb7744
+Patch-set: 7
+File: include/hardware_legacy/wifi_nan.h
+
+1543:11-1543:19
+Tue Dec 06 23:36:13 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_036d18e0
+Bytes: 8
+spelling
+
