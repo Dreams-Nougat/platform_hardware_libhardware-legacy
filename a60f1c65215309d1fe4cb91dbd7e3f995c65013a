@@ -20,6 +20,16 @@ Ranging_limit indicates the there is ingress, egress limit has been mentioned.
 
 Please check the 10-4 and 10-5 figure in the spec.
 
+124:1-134:22
+Wed Dec 07 23:13:55 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_a540e172
+UUID: ed27f748_00e183b6
+Bytes: 226
+Per those figures you need 2 additional values in the sdea struct to provide the 10-5 values.
+
+However: I'm still missing something. What is the meaning of ranging_required=1 and ranging_limit=0 -> ranging required to do what?
+
 274:7-274:21
 Wed Dec 07 00:25:41 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
