@@ -1,0 +1,25 @@
+Revision: a60f1c65215309d1fe4cb91dbd7e3f995c65013a
+Patch-set: 2
+File: include/hardware_legacy/wifi_nan.h
+
+124:1-134:22
+Wed Dec 07 00:25:41 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_6e64f33a
+Bytes: 55
+Not clear how these interact - and why both are needed.
+
+274:7-274:21
+Wed Dec 07 00:25:41 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_ce7e67cd
+Bytes: 14
+where is this?
+
+277:2-277:19
+Wed Dec 07 00:25:41 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_4e6b3708
+Bytes: 19
+Where is this used?
+
