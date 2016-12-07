@@ -115,6 +115,24 @@ typedef enum {
     NAN_EVENT_ID_JOINED_CLUSTER
 } NanDiscEngEventType;
 
+/* NAN Data Path type */
+typedef enum {
+    NAN_DATA_PATH_UNICAST_MSG = 0,
+    NAN_DATA_PATH_MULTICAST_MSG
+} NdpType;
+
+/* NAN Ranging Configuration */
+typedef enum {
+    NAN_RANGING_DISABLE = 0,
+    NAN_RANGING_ENABLE
+} NanRangingState;
+
+/* NAN Ranging Limit Configuration */
+typedef enum {
+    NAN_RANGING_LIMIT_DISABLE = 0,
+    NAN_RANGING_LIMIT_ENABLE
+} NanRangingLimitState
+
 /* TCA Type */
 typedef enum {
     NAN_TCA_ID_CLUSTER_SIZE = 0
@@ -225,6 +243,38 @@ typedef enum {
 /* NAN Shared Key Security Cipher Suites Mask */
 #define NAN_CIPHER_SUITE_SHARED_KEY_128_MASK  0x01
 #define NAN_CIPHER_SUITE_SHARED_KEY_256_MASK  0x02
+
+/*
+   Structure to set the Service Descriptor Extension
+   Attribute (SDEA) passed as part of NanPublishRequest/
+   NanSubscribeRequest/NanMatchInd.
+*/
+typedef struct {
+    /*
+       Optional configuration of Data Path Enable request.
+       configure flag determines whether configuration needs
+       to be passed or not.
+    */
+    u8 config_nan_data_path;
+    NdpType ndp_type;
+    /*
+       NAN secuirty required flag to indicate
+       if the security is enabled or disabled
+    */
+    NanDataPathSecurityCfgStatus security_cfg;
+    /*
+       NAN ranging required flag to indicate
+       if ranging is enabled on disabled
+    */
+    NanRangingState ranging_state;
+    /*
+       NAN ranging limit present flag to
+       indicate if Range Limit is specified
+       for the service. Valid only if
+       enable_ranging is set to 1.
+    */
+    NanRangingLimitState ranging_limit_state;
+} NanSdeaCtrlParams;
 
 /* Nan/NDP Capabilites info */
 typedef struct {
@@ -900,6 +950,9 @@ typedef struct {
 
     /* NAN secuirty required flag */
     NanDataPathSecurityCfgStatus security_cfg;
+
+    /* NAN configure service discovery extended attributes */
+    NanSdeaCtrlParams sdea_params;
 } NanPublishRequest;
 
 /*
@@ -1045,6 +1098,9 @@ typedef struct {
 
     /* NAN security required flag */
     NanDataPathSecurityCfgStatus security_cfg;
+
+    /* NAN configure service discovery extended attributes */
+    NanSdeaCtrlParams sdea_params;
 } NanSubscribeRequest;
 
 /*
