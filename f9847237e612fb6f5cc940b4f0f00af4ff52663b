@@ -1,0 +1,25 @@
+Revision: f9847237e612fb6f5cc940b4f0f00af4ff52663b
+Patch-set: 1
+File: include/hardware_legacy/wifi_nan.h
+
+149
+Wed Dec 07 23:35:21 2016 +0000
+Author: Amarnath Hullur Subramanyam <1131940@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_40d9bbdc
+Bytes: 75
+Should this be named as NanRangingEventType instead of NdpRangingEventType?
+
+986
+Wed Dec 07 23:35:21 2016 +0000
+Author: Amarnath Hullur Subramanyam <1131940@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_6084f79b
+Bytes: 160
+Can all of the Ranging parameters be consolidated into one strucure as that of NanDataPathSecurityCfgStatus and that structure be used in Publish and Subscribe?
+
+1844
+Wed Dec 07 23:35:21 2016 +0000
+Author: Amarnath Hullur Subramanyam <1131940@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_a0576f43
+Bytes: 19
+trailing whitespace
+
