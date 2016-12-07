@@ -9,6 +9,17 @@ UUID: ed27f748_6e64f33a
 Bytes: 55
 Not clear how these interact - and why both are needed.
 
+124:1-134:22
+Wed Dec 07 22:38:08 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_6e64f33a
+UUID: ed27f748_a540e172
+Bytes: 181
+Etan, ranging indicates that ranging is required.
+Ranging_limit indicates the there is ingress, egress limit has been mentioned. 
+
+Please check the 10-4 and 10-5 figure in the spec.
+
 274:7-274:21
 Wed Dec 07 00:25:41 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
@@ -16,10 +27,26 @@ UUID: ed27f748_ce7e67cd
 Bytes: 14
 where is this?
 
+274:7-274:21
+Wed Dec 07 22:38:08 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_ce7e67cd
+UUID: ed27f748_05fd15fb
+Bytes: 56
+Enable is ranging_state, Enabled/Disabled as enum above.
+
 277:2-277:19
 Wed Dec 07 00:25:41 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: ed27f748_4e6b3708
 Bytes: 19
 Where is this used?
+
+277:2-277:19
+Wed Dec 07 22:38:08 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_4e6b3708
+UUID: ed27f748_85f12527
+Bytes: 45
+This is part of the Publish/Subscribe struct.
 
