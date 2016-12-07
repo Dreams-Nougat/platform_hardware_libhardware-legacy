@@ -138,6 +138,16 @@ typedef enum {
     NAN_TCA_ID_CLUSTER_SIZE = 0
 } NanTcaType;
 
+/* NAN Ranging Event type */
+typedef enum {
+    /* if the ranging indication condition set to Ingress or both_Ingress_Egress */
+    NAN_RANGING_INNER_THRESHOLD = 0,
+    /* if the ranging indication condition set to Egress or both_Ingress_Egress */
+    NAN_RANGING_OUTER_THRESHOLD,
+    /* if the ranging indication condition set to Continues */
+    NAN_RANGING_CONTINUES
+} NanRangingEventType;
+
 /*
   Various NAN Protocol Response code
 */
@@ -240,9 +250,20 @@ typedef enum {
     NAN_DP_FORCE_CHANNEL_SETUP
 } NanDataPathChannelCfg;
 
+/* NAN Ranging Auto response configuration */
+typedef enum {
+    NAN_RANGING_AUTO_RESPONSE_ENABLE = 0,
+    NAN_RANGING_AUTO_RESPONSE_DISABLE
+} NanRangingAutoResponseCfg;
+
 /* NAN Shared Key Security Cipher Suites Mask */
 #define NAN_CIPHER_SUITE_SHARED_KEY_128_MASK  0x01
 #define NAN_CIPHER_SUITE_SHARED_KEY_256_MASK  0x02
+
+/* NAN ranging indication condition MASKS */
+#define NAN_RANGING_INDICATE_CONTINUOUS_MASK   0x01
+#define NAN_RANGING_INDICATE_INGRESS_MET_MASK  0x02
+#define NAN_RANGING_INDICATE_EGRESS_MET_MASK   0x04
 
 /*
    Structure to set the Service Descriptor Extension
@@ -950,6 +971,9 @@ typedef struct {
 
     /* NAN secuirty required flag */
     NanDataPathSecurityCfgStatus security_cfg;
+
+    /* NAN Ranging configuration */
+    NanRangingCfg ranging_cfg;
 } NanPublishRequest;
 
 /*
@@ -1095,6 +1119,9 @@ typedef struct {
 
     /* NAN security required flag */
     NanDataPathSecurityCfgStatus security_cfg;
+
+    /* NAN Ranging configuration */
+    NanRangingCfg ranging_cfg;
 } NanSubscribeRequest;
 
 /*
@@ -1221,6 +1248,9 @@ typedef struct {
     */
     u8 config_disc_mac_addr_randomization;
     u16 disc_mac_addr_rand_interval_sec;
+    /* Config NAN device Ranging response mode */
+    u8 config_responder_auto_response;
+    NanRangingAutoResponseCfg ranging_auto_response_cfg;
 } NanConfigRequest;
 
 /*
@@ -1788,6 +1818,29 @@ typedef struct {
 } NanTransmitFollowupInd;
 
 /*
+  Event Indication notifying the
+  type of ranging event matched
+*/
+typedef struct {
+    /*
+      MAC address of the device for which the
+      range measurement has been computed.
+    */
+    u8 ranged_mac_addr[NAN_MAC_ADDR_LEN];
+    /*
+      Uniquely identifying token to determine the range request.
+      The current implementation maps to subscribe_id.
+    */
+    u16 range_id;
+    /*
+      Distance to the NAN device with the MAC address indicated
+      with ranged mac address.
+    */
+    u32 range_measurement_cm;
+    NanRangingEventType ranging_event_type;
+} NanRangingResultInd;
+
+/*
   Data request Initiator/Responder
   app/service related info
 */
@@ -1808,6 +1861,25 @@ typedef struct {
     NanDataPathSecurityCfgStatus security_cfg;
     NanDataPathQosCfg qos_cfg;
 } NanDataPathCfg;
+
+/* Configuration params of NAN Ranging */
+typedef struct {
+    /* Accuracy required for ranging */
+    u32 ranging_resolution;
+    /* Interval in milli sec between two ranging measurements */
+    u32 ranging_interval_msec;
+    /*
+      Flags indicating the type of ranging event to be notified
+      BIT0 - Continuous Ranging event notification.
+      BIT1 - Ingress distance met.
+      BIT2 - Egress distance met.
+    */
+    u32 config_ranging_indications;
+    /* Ingress distance in centimeters (optional) */
+    u32 distance_ingress_cm;
+    /* Egress distance in centimeters (optional) */
+    u32 distance_egress_cm;
+} NanRangingCfg;
 
 /* Nan Data Path Initiator requesting a data session */
 typedef struct {
@@ -1966,6 +2038,7 @@ typedef struct {
     void (*EventDataConfirm)(NanDataPathConfirmInd* event);
     void (*EventDataEnd)(NanDataPathEndInd* event);
     void (*EventTransmitFollowup) (NanTransmitFollowupInd* event);
+    void (*EventRangingResult) (NanRangingResultInd* event);
 } NanCallbackHandler;
 
 /**@brief nan_enable_request
