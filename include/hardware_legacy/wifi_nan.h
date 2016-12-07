@@ -138,6 +138,16 @@ typedef enum {
     NAN_TCA_ID_CLUSTER_SIZE = 0
 } NanTcaType;
 
+/* NAN Ranging Event type */
+typedef enum {
+    /* if the ranging indication condition set to Ingress or both_Ingress_Egress */
+    NAN_RANGING_INNER_THRESHOLD = 0,
+    /* if the ranging indication condition set to Egress or both_Ingress_Egress */
+    NAN_RANGING_OUTER_THRESHOLD,
+    /* if the ranging indication condition set to Continues */
+    NAN_RANGING_CONTINUES
+} NdpRangingEventType;
+
 /*
   Various NAN Protocol Response code
 */
@@ -243,6 +253,12 @@ typedef enum {
 /* NAN Shared Key Security Cipher Suites Mask */
 #define NAN_CIPHER_SUITE_SHARED_KEY_128_MASK  0x01
 #define NAN_CIPHER_SUITE_SHARED_KEY_256_MASK  0x02
+
+/* NAN ranging indication condition MASKS */
+#define NAN_RANGING_INDICATE_CONTINUOUS_MASK   0x01
+#define NAN_RANGING_INDICATE_INGRESS_MET_MASK  0x02
+#define NAN_RANGING_INDICATE_EGRESS_MET_MASK   0x04
+
 
 /*
    Structure to set the Service Descriptor Extension
@@ -950,6 +966,24 @@ typedef struct {
 
     /* NAN secuirty required flag */
     NanDataPathSecurityCfgStatus security_cfg;
+
+    /* Accuracy required for ranging */
+    u32 ranging_resolution_cm;
+    /* Interval between two ranging measurements */
+    u32 ranging_interval_sec;
+    /*
+      Flags indicating the type of ranging event to be notified
+      BIT0 - Continuous Ranging event notification.
+      BIT1 - Ingress distance met.
+      BIT2 - Egress distance met.
+    */
+    u32 config_ranging_notification_conditions;
+    /* Ingress distance in centimeters (optional) */
+    int distance_ingress_cm;
+    /* Egress distance in centimeters (optional) */
+    int distance_egress_cm;
+    /* Both Ingress/Egress distance in centimeters (optional) */
+    int distance_ingress_egress_meters_cm;
 } NanPublishRequest;
 
 /*
@@ -1095,6 +1129,24 @@ typedef struct {
 
     /* NAN security required flag */
     NanDataPathSecurityCfgStatus security_cfg;
+
+    /* Accuracy required for ranging */
+    u32 ranging_resolution_cm;
+    /* Interval between two ranging measurements */
+    u32 ranging_interval_sec;
+    /*
+      Flags indicating the type of ranging event to be notified
+      BIT0 - Continuous Ranging event notification.
+      BIT1 - Ingress distance met.
+      BIT2 - Egress distance met.
+    */
+    u32 config_ranging_notification_conditions;
+    /* Ingress distance in centimeters (optional) */
+    int distance_ingress_cm;
+    /* Egress distance in centimeters (optional) */
+    int distance_egress_cm;
+    /* Both Ingress/Egress distance in centimeters (optional) */
+    int distance_ingress_egress_meters_cm;
 } NanSubscribeRequest;
 
 /*
@@ -1788,6 +1840,14 @@ typedef struct {
 } NanTransmitFollowupInd;
 
 /*
+  Event Indication notifying the
+  type of ranging event matched 
+*/
+typedef struct {
+   NanRangingEventType ranging_event_type;
+} NanRangingResultInd;
+
+/*
   Data request Initiator/Responder
   app/service related info
 */
@@ -1966,6 +2026,7 @@ typedef struct {
     void (*EventDataConfirm)(NanDataPathConfirmInd* event);
     void (*EventDataEnd)(NanDataPathEndInd* event);
     void (*EventTransmitFollowup) (NanTransmitFollowupInd* event);
+    void (*EventRangingResult) (NanRangingResultInd* event);
 } NanCallbackHandler;
 
 /**@brief nan_enable_request
