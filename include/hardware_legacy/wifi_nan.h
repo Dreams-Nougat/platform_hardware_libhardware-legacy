@@ -132,6 +132,16 @@ typedef enum {
     NAN_TCA_ID_CLUSTER_SIZE = 0
 } NanTcaType;
 
+/* NAN Ranging Event type */
+typedef enum {
+    /* if the ranging indication condition set to Ingress or both_Ingress_Egress */
+    NAN_RANGING_INNER_THRESHOLD = 0,
+    /* if the ranging indication condition set to Egress or both_Ingress_Egress */
+    NAN_RANGING_OUTER_THRESHOLD,
+    /* if the ranging indication condition set to Continuous */
+    NAN_RANGING_CONTINUOUS
+} NanRangingEventType;
+
 /*
   Various NAN Protocol Response code
 */
@@ -234,9 +244,20 @@ typedef enum {
     NAN_DP_FORCE_CHANNEL_SETUP
 } NanDataPathChannelCfg;
 
+/* NAN Ranging Auto response configuration */
+typedef enum {
+    NAN_RANGING_AUTO_RESPONSE_ENABLE = 0,
+    NAN_RANGING_AUTO_RESPONSE_DISABLE
+} NanRangingAutoResponseCfg;
+
 /* NAN Shared Key Security Cipher Suites Mask */
 #define NAN_CIPHER_SUITE_SHARED_KEY_128_MASK  0x01
 #define NAN_CIPHER_SUITE_SHARED_KEY_256_MASK  0x02
+
+/* NAN ranging indication condition MASKS */
+#define NAN_RANGING_INDICATE_CONTINUOUS_MASK   0x01
+#define NAN_RANGING_INDICATE_INGRESS_MET_MASK  0x02
+#define NAN_RANGING_INDICATE_EGRESS_MET_MASK   0x04
 
 /*
    Structure to set the Service Descriptor Extension
@@ -526,6 +547,30 @@ typedef enum {
     NAN_P2P_OPER_DEV = 3,
     NAN_P2P_OPER_CLI = 4
 } NanDeviceRole;
+
+/* Configuration params of NAN Ranging */
+typedef struct {
+    /*
+      Interval in milli sec between two ranging measurements.
+      If the Awake DW intervals in NanEnable/Config are larger
+      than the ranging intervals priority is given to Awake DW
+      Intervals. Only on a match the ranging is initiated for the
+      peer
+    */
+    u32 ranging_interval_msec;
+    /*
+      Flags indicating the type of ranging event to be notified
+      NAN_RANGING_INDICATE_ MASKS are used to set these.
+      BIT0 - Continuous Ranging event notification.
+      BIT1 - Ingress distance is <=.
+      BIT2 - Egress distance is >=.
+    */
+    u32 config_ranging_indications;
+    /* Ingress distance in centimeters (optional) */
+    u32 distance_ingress_cm;
+    /* Egress distance in centimeters (optional) */
+    u32 distance_egress_cm;
+} NanRangingCfg;
 
 /* Structure of Post NAN Discovery attribute */
 typedef struct {
@@ -830,6 +875,10 @@ typedef struct {
     */
     u8 config_disc_mac_addr_randomization;
     u16 disc_mac_addr_rand_interval_sec;
+
+    /* Enable NAN device Ranging response mode */
+    u8 config_responder_auto_response;
+    NanRangingAutoResponseCfg ranging_auto_response_cfg;
 } NanEnableRequest;
 
 /*
@@ -944,6 +993,9 @@ typedef struct {
 
     /* NAN configure service discovery extended attributes */
     NanSdeaCtrlParams sdea_params;
+
+    /* NAN Ranging configuration */
+    NanRangingCfg ranging_cfg;
 } NanPublishRequest;
 
 /*
@@ -1089,6 +1141,9 @@ typedef struct {
 
     /* NAN configure service discovery extended attributes */
     NanSdeaCtrlParams sdea_params;
+
+    /* NAN Ranging configuration */
+    NanRangingCfg ranging_cfg;
 } NanSubscribeRequest;
 
 /*
@@ -1217,6 +1272,9 @@ typedef struct {
     */
     u8 config_disc_mac_addr_randomization;
     u16 disc_mac_addr_rand_interval_sec;
+    /* Config NAN device Ranging response mode */
+    u8 config_responder_auto_response;
+    NanRangingAutoResponseCfg ranging_auto_response_cfg;
 } NanConfigRequest;
 
 /*
@@ -1506,6 +1564,29 @@ typedef struct {
 } NanPublishTerminatedInd;
 
 /*
+  Event Indication notifying the
+  type of ranging event matched
+*/
+typedef struct {
+    /*
+      MAC address of the device for which the
+      range measurement has been computed.
+    */
+    u8 ranged_mac_addr[NAN_MAC_ADDR_LEN];
+    /*
+      Uniquely identifying token to determine the range request.
+      The range id is same as subscribe_id.
+    */
+    u16 range_id;
+    /*
+      Distance to the NAN device with the MAC address indicated
+      with ranged mac address.
+    */
+    u32 range_measurement_cm;
+    NanRangingEventType ranging_event_type;
+} NanRangingResultInd;
+
+/*
   Match Indication
   The MatchInd message is sent once per responding MAC address whenever
   the Discovery Engine detects a match for a previous SubscribeServiceReq
@@ -1599,6 +1680,24 @@ typedef struct {
 
     /* Peer service discovery extended attributes */
     NanSdeaCtrlParams peer_sdea_params;
+
+    /*
+      Ranging indication data is notified if:
+      1) Ranging requied is enabled in SDEA.
+         if first match only, ranging info notified once
+         if matche all and range continuous enabled,
+         range info notified continuous.
+         if all match, but range continuous not set,
+         no range info notified.
+      2) if range_limit ingress/egress MASKS are enabled
+         if first match only, notify once for ingress >= ingress_distance
+         and egress <= egress_distance, same for ingress_egress_both
+         if match all, and ingress(>=)/egress(<=) conditions are true,
+         continuous matches are notified.
+      3) if the Awake DW intervals are higher than the ranging intervals,
+         priority is given to the device DW intervalsi.
+    */
+    NanRangingResultInd ranging_result;
 } NanMatchInd;
 
 /*
