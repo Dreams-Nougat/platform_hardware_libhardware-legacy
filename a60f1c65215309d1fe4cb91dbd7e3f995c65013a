@@ -30,6 +30,16 @@ Per those figures you need 2 additional values in the sdea struct to provide the
 
 However: I'm still missing something. What is the meaning of ranging_required=1 and ranging_limit=0 -> ranging required to do what?
 
+124:1-134:22
+Thu Dec 08 22:36:46 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_00e183b6
+UUID: ed27f748_83335353
+Bytes: 234
+Etan, ranging required will return continuous ranging results for which the framework has requested.
+
+ranging_required + ranging_limit will consider the ingress/egress parameter inputs. These are defined in the next CL uploaded today.
+
 274:7-274:21
 Wed Dec 07 00:25:41 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
