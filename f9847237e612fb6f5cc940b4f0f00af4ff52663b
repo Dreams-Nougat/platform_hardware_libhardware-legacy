@@ -9,6 +9,14 @@ UUID: ed27f748_40d9bbdc
 Bytes: 75
 Should this be named as NanRangingEventType instead of NdpRangingEventType?
 
+149
+Thu Dec 08 21:42:34 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_40d9bbdc
+UUID: ed27f748_50917fa3
+Bytes: 4
+Done
+
 986
 Wed Dec 07 23:35:21 2016 +0000
 Author: Amarnath Hullur Subramanyam <1131940@85c56323-6fa9-3386-8a01-6480fb634889>
@@ -16,10 +24,26 @@ UUID: ed27f748_6084f79b
 Bytes: 160
 Can all of the Ranging parameters be consolidated into one strucure as that of NanDataPathSecurityCfgStatus and that structure be used in Publish and Subscribe?
 
+986
+Thu Dec 08 21:42:34 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_6084f79b
+UUID: ed27f748_b06333f0
+Bytes: 4
+Done
+
 1844
 Wed Dec 07 23:35:21 2016 +0000
 Author: Amarnath Hullur Subramanyam <1131940@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: ed27f748_a0576f43
 Bytes: 19
 trailing whitespace
+
+1844
+Thu Dec 08 21:42:34 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_a0576f43
+UUID: ed27f748_f059ab47
+Bytes: 4
+Done
 
