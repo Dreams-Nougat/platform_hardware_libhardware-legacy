@@ -1,0 +1,91 @@
+Revision: aa5cebe9789f6b8a4d6a8e1e72da7fd80b65a1c1
+Patch-set: 4
+File: include/hardware_legacy/wifi_nan.h
+
+148:16-148:25
+Thu Dec 08 23:22:07 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_a398cf61
+Bytes: 15
+nit: CONTINUOUS
+
+1252:0-1253:56
+Thu Dec 08 23:22:07 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_43ad3b80
+Bytes: 139
+Why not on EnableRequest?
+
+Is there a default if not specified? If so could skip the config_ flag and just make the 0 constant the default.
+
+1830:0-1834:17
+Thu Dec 08 23:22:07 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_839b535e
+Bytes: 71
+not clear what/why useful. Seems like a way around onMatch integration.
+
+1868:4-1868:26
+Thu Dec 08 23:22:07 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_437bfb68
+Bytes: 11
+what units?
+
+1869:7-1869:15
+Thu Dec 08 23:22:07 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_a3868f32
+Bytes: 161
+more information about semantics: 
+- assume only relevant on match
+- only relevant for active participant?
+- how does it interact with DW interval (power saving)
+
+1872:6-1872:11
+Thu Dec 08 23:22:07 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_e3b567d0
+Bytes: 79
+Are the NAN_RANGING_INDICATE_* flags for this? If so please specify in comment.
+
+1873:13-1873:23
+Thu Dec 08 23:22:07 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_23483f2a
+Bytes: 40
+again, assumes only when there's a match
+
+1874:30-1874:33
+Thu Dec 08 23:22:07 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_e33a4787
+Bytes: 31
+what does 'met' mean? 
+==
+>=
+<=
+
+1875:29-1875:32
+Thu Dec 08 23:22:07 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_0300a3b3
+Bytes: 100
+same
+
+note that ingress and egress semantics are reversed so meaning of met may be different as well
+
+1877:8-1877:34
+Thu Dec 08 23:22:07 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_23deff29
+Bytes: 77
+is ==0 the way to disable ranging here or is that done using the sdea struct?
+
+2041:11-2041:29
+Thu Dec 08 23:22:07 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: ed27f748_23acbf81
+Bytes: 58
+Delivered independently of the match? How do we correlate?
+
