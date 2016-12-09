@@ -35,6 +35,14 @@ Bytes: 234
 Yes, we can add in the enable too and default is responder AUTO mode enabled for nan device. 
 If we disable AUTO and then want to enable, it becomes a problem, other way change the ENABLE = 1 and DISABLE = 2 and get rid of the config.
 
+1252:0-1253:56
+Fri Dec 09 16:01:20 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 1a280382_b014f664
+UUID: 1a280382_212676de
+Bytes: 108
+Why is there a problem. If you have ENABLE=0 (which is the default - not sure what AUTO means?). Then works?
+
 1830:0-1834:17
 Thu Dec 08 23:22:07 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
@@ -49,6 +57,16 @@ Parent: ed27f748_839b535e
 UUID: 1a280382_b0e996cc
 Bytes: 50
 This is on onMatch and its tied to the pub_sub id.
+
+1830:0-1834:17
+Fri Dec 09 16:01:20 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 1a280382_b0e996cc
+UUID: 1a280382_010b7a4a
+Bytes: 198
+First: "the current implementation" statement is a problem. Doesn't belong in an API - let's decide what this is and call it the same.
+
+And as discussed below - this is a new callback - not onMatch.
 
 1868:4-1868:26
 Thu Dec 08 23:22:07 2016 +0000
@@ -134,6 +152,14 @@ Bytes: 73
 ==, any other will make it indicate all the time.
 Figure 8-1 in the spec.
 
+1874:30-1874:33
+Fri Dec 09 16:01:20 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 1a280382_f0083ede
+UUID: 1a280382_e1074e3a
+Bytes: 76
+isn't == useless? what's the likelihood you're going to hit exact equality!?
+
 1875:29-1875:32
 Thu Dec 08 23:22:07 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
@@ -181,4 +207,12 @@ Parent: ed27f748_23acbf81
 UUID: 1a280382_90e8da36
 Bytes: 59
 The pub_sub_id or renamed as range_id is used to correlate.
+
+2041:11-2041:29
+Fri Dec 09 16:01:20 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 1a280382_90e8da36
+UUID: 1a280382_c1145266
+Bytes: 38
+why not deliver as part of an onMatch?
 
