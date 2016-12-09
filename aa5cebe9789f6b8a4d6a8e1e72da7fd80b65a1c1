@@ -9,6 +9,14 @@ UUID: ed27f748_a398cf61
 Bytes: 15
 nit: CONTINUOUS
 
+148:16-148:25
+Fri Dec 09 01:52:25 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_a398cf61
+UUID: 1a280382_906d7a20
+Bytes: 4
+Done
+
 1252:0-1253:56
 Thu Dec 08 23:22:07 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
@@ -18,6 +26,15 @@ Why not on EnableRequest?
 
 Is there a default if not specified? If so could skip the config_ flag and just make the 0 constant the default.
 
+1252:0-1253:56
+Fri Dec 09 01:52:25 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_43ad3b80
+UUID: 1a280382_b014f664
+Bytes: 234
+Yes, we can add in the enable too and default is responder AUTO mode enabled for nan device. 
+If we disable AUTO and then want to enable, it becomes a problem, other way change the ENABLE = 1 and DISABLE = 2 and get rid of the config.
+
 1830:0-1834:17
 Thu Dec 08 23:22:07 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
@@ -25,12 +42,30 @@ UUID: ed27f748_839b535e
 Bytes: 71
 not clear what/why useful. Seems like a way around onMatch integration.
 
+1830:0-1834:17
+Fri Dec 09 01:52:25 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_839b535e
+UUID: 1a280382_b0e996cc
+Bytes: 50
+This is on onMatch and its tied to the pub_sub id.
+
 1868:4-1868:26
 Thu Dec 08 23:22:07 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: ed27f748_437bfb68
 Bytes: 11
 what units?
+
+1868:4-1868:26
+Fri Dec 09 01:52:25 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_437bfb68
+UUID: 1a280382_33eed098
+Bytes: 89
+num of frames per burst. Minimum value = 1, Maximum value = 31
+
+Will update the comments.
 
 1869:7-1869:15
 Thu Dec 08 23:22:07 2016 +0000
@@ -42,6 +77,14 @@ more information about semantics:
 - only relevant for active participant?
 - how does it interact with DW interval (power saving)
 
+1869:7-1869:15
+Fri Dec 09 01:52:25 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_a3868f32
+UUID: 1a280382_50ccb27b
+Bytes: 23
+I will update the info.
+
 1872:6-1872:11
 Thu Dec 08 23:22:07 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
@@ -49,12 +92,28 @@ UUID: ed27f748_e3b567d0
 Bytes: 79
 Are the NAN_RANGING_INDICATE_* flags for this? If so please specify in comment.
 
+1872:6-1872:11
+Fri Dec 09 01:52:25 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_e3b567d0
+UUID: 1a280382_d0ec22de
+Bytes: 5
+sure.
+
 1873:13-1873:23
 Thu Dec 08 23:22:07 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: ed27f748_23483f2a
 Bytes: 40
 again, assumes only when there's a match
+
+1873:13-1873:23
+Fri Dec 09 01:52:25 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_23483f2a
+UUID: 1a280382_30ffe68b
+Bytes: 8
+correct.
 
 1874:30-1874:33
 Thu Dec 08 23:22:07 2016 +0000
@@ -66,6 +125,15 @@ what does 'met' mean?
 >=
 <=
 
+1874:30-1874:33
+Fri Dec 09 01:52:25 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_e33a4787
+UUID: 1a280382_f0083ede
+Bytes: 73
+==, any other will make it indicate all the time.
+Figure 8-1 in the spec.
+
 1875:29-1875:32
 Thu Dec 08 23:22:07 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
@@ -75,6 +143,14 @@ same
 
 note that ingress and egress semantics are reversed so meaning of met may be different as well
 
+1875:29-1875:32
+Fri Dec 09 01:52:25 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_0300a3b3
+UUID: 1a280382_10dbca39
+Bytes: 48
+Lets talk on this and pic should give more idea.
+
 1877:8-1877:34
 Thu Dec 08 23:22:07 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
@@ -82,10 +158,27 @@ UUID: ed27f748_23deff29
 Bytes: 77
 is ==0 the way to disable ranging here or is that done using the sdea struct?
 
+1877:8-1877:34
+Fri Dec 09 01:52:25 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_23deff29
+UUID: 1a280382_303a46da
+Bytes: 91
+Yes, sdea_ctrl_params, ranging_required = false to disable.
+We have this in NanConfig also.
+
 2041:11-2041:29
 Thu Dec 08 23:22:07 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: ed27f748_23acbf81
 Bytes: 58
 Delivered independently of the match? How do we correlate?
+
+2041:11-2041:29
+Fri Dec 09 01:52:25 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: ed27f748_23acbf81
+UUID: 1a280382_90e8da36
+Bytes: 59
+The pub_sub_id or renamed as range_id is used to correlate.
 
