@@ -68,6 +68,14 @@ First: "the current implementation" statement is a problem. Doesn't belong in an
 
 And as discussed below - this is a new callback - not onMatch.
 
+1830:0-1834:17
+Sat Dec 10 21:00:34 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 1a280382_010b7a4a
+UUID: 1a280382_25a2f990
+Bytes: 116
+Fixed the line current implementation, range_id matches the subscribe_id. Moved the RangingResultInd to NanMatchInd.
+
 1868:4-1868:26
 Thu Dec 08 23:22:07 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
@@ -84,6 +92,14 @@ Bytes: 89
 num of frames per burst. Minimum value = 1, Maximum value = 31
 
 Will update the comments.
+
+1868:4-1868:26
+Sat Dec 10 21:00:34 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 1a280382_33eed098
+UUID: 1a280382_059ffd4b
+Bytes: 13
+Removed this.
 
 1869:7-1869:15
 Thu Dec 08 23:22:07 2016 +0000
@@ -117,6 +133,14 @@ Parent: ed27f748_e3b567d0
 UUID: 1a280382_d0ec22de
 Bytes: 5
 sure.
+
+1872:6-1872:11
+Sat Dec 10 21:00:34 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 1a280382_d0ec22de
+UUID: 1a280382_e0861ffe
+Bytes: 4
+Done
 
 1873:13-1873:23
 Thu Dec 08 23:22:07 2016 +0000
@@ -159,6 +183,14 @@ Parent: 1a280382_f0083ede
 UUID: 1a280382_e1074e3a
 Bytes: 76
 isn't == useless? what's the likelihood you're going to hit exact equality!?
+
+1874:30-1874:33
+Sat Dec 10 21:00:34 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 1a280382_e1074e3a
+UUID: 1a280382_007a4b26
+Bytes: 28
+agreed, changed to <= or >=.
 
 1875:29-1875:32
 Thu Dec 08 23:22:07 2016 +0000
@@ -215,4 +247,12 @@ Parent: 1a280382_90e8da36
 UUID: 1a280382_c1145266
 Bytes: 38
 why not deliver as part of an onMatch?
+
+2041:11-2041:29
+Sat Dec 10 21:00:34 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 1a280382_c1145266
+UUID: 1a280382_4078532f
+Bytes: 36
+Yes, this is moved to EventMatchInd.
 
