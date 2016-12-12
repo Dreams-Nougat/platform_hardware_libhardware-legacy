@@ -9,12 +9,28 @@ UUID: 1a280382_5bf3a57b
 Bytes: 82
 necessary and/or what's the default? [again, assume that structure is memset to 0]
 
+877:4-877:37
+Mon Dec 12 21:00:12 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 1a280382_5bf3a57b
+UUID: 1a280382_012b6cf4
+Bytes: 23
+We agreed to keep this.
+
 1271:7-1271:37
 Mon Dec 12 18:21:59 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: 1a280382_fb01316e
 Bytes: 4
 same
+
+1271:7-1271:37
+Mon Dec 12 21:00:12 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 1a280382_fb01316e
+UUID: 1a280382_e1306044
+Bytes: 20
+Agreed to keep this.
 
 1565:4-1569:41
 Mon Dec 12 18:21:59 2016 +0000
@@ -23,6 +39,14 @@ UUID: 1a280382_9b646d60
 Bytes: 44
 no longer needed since included by container
 
+1565:4-1569:41
+Mon Dec 12 21:00:12 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 1a280382_9b646d60
+UUID: 1a280382_614590b4
+Bytes: 4
+Done
+
 1570:0-1574:17
 Mon Dec 12 18:21:59 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
@@ -30,10 +54,26 @@ UUID: 1a280382_7b69c135
 Bytes: 44
 no longer needed since included by container
 
+1570:0-1574:17
+Mon Dec 12 21:00:12 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 1a280382_7b69c135
+UUID: 1a280382_413a9428
+Bytes: 4
+Done
+
 1580:4-1580:23
 Mon Dec 12 18:21:59 2016 +0000
 Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
 UUID: 1a280382_9b4b4dcc
 Bytes: 72
 What's this? I assume this is actually a u32 of  NAN_RANGING_INDICATE_*?
+
+1580:4-1580:23
+Mon Dec 12 21:00:12 2016 +0000
+Author: Subhani Shaik <1124533@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 1a280382_9b4b4dcc
+UUID: 1a280382_01348c36
+Bytes: 60
+Separate enum, but BIT MASKS are good enough, made this u32.
 
