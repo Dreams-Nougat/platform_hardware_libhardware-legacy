@@ -1,0 +1,39 @@
+Revision: 39bb1ca5d9303273102eb98e26496024022b7c25
+Patch-set: 9
+File: include/hardware_legacy/wifi_nan.h
+
+877:4-877:37
+Mon Dec 12 18:21:59 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: 1a280382_5bf3a57b
+Bytes: 82
+necessary and/or what's the default? [again, assume that structure is memset to 0]
+
+1271:7-1271:37
+Mon Dec 12 18:21:59 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: 1a280382_fb01316e
+Bytes: 4
+same
+
+1565:4-1569:41
+Mon Dec 12 18:21:59 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: 1a280382_9b646d60
+Bytes: 44
+no longer needed since included by container
+
+1570:0-1574:17
+Mon Dec 12 18:21:59 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: 1a280382_7b69c135
+Bytes: 44
+no longer needed since included by container
+
+1580:4-1580:23
+Mon Dec 12 18:21:59 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+UUID: 1a280382_9b4b4dcc
+Bytes: 72
+What's this? I assume this is actually a u32 of  NAN_RANGING_INDICATE_*?
+
