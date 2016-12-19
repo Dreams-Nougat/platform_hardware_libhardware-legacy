@@ -32,3 +32,17 @@ UUID: 3a3f8799_c44517b9
 Bytes: 48
 Yes, the plan is not even once. Any suggestions?
 
+1670:9-1671:32
+Mon Dec 19 16:26:58 2016 +0000
+Author: Etan Cohen <1039103@85c56323-6fa9-3386-8a01-6480fb634889>
+Parent: 3a3f8799_c44517b9
+UUID: 3a3f8799_e4a5b353
+Bytes: 304
+We have some redundant specifications which act inconsistently.
+
+If ranging is specified then I assume that user wants ranging to control matching. Hence:
+
+All match <-> continuous
+
+But the strangeness is that in this case ranging is actually disabled - even if the user specified ingress and/or egress!?
+
